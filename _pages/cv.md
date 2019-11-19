@@ -39,9 +39,6 @@ Work experience
 
 Skills
 ======
-  \item Languages: German (native), English (proficient)
-    \item Technical: Information Theory, Physical Layer Security, Machine/Deep Learning (see postdoc project)
-    \item Programming: Python (TensorFlow, Keras, scikit-learn, Pandas), Latex, Matlab, C/C++, MCNP5
 * Languages: 
   * German (native)
   * English (proficient)
