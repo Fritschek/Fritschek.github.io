@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 <p align="center">
-  <img src="https://Fritschek.github.io/files/about.jpg?raw=true" alt="Photo" style="width: 450px;"/> 
+  <img src="https://Fritschek.github.io/images/about.jpg?raw=true" alt="Photo" style="width: 450px;"/> 
 </p>
 
 * I am a research scientist in the [computer science department](https://www.mi.fu-berlin.de/en/index.html) at [Freie Universität Berlin](https://www.fu-berlin.de/en/index.html)
