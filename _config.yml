@@ -13,7 +13,7 @@ name                     : &name "Rick Fritschek"
 description              : &description "Research scientist at FU Berlin"
 url                      : https://Fritschek.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "Fritschek.github.io"
+repository               : "Fritschek/Fritschek.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -81,14 +81,14 @@ analytics:
 # Site Author
 author:
   name             : "Rick Fritschek"
-  avatar           : "profile.png"
-  bio              : "Research scientist at FU Berlin, interested in information theory, machine learning and AI"
+  avatar           : #"profile.png"
+  bio              : "Research scientist at FU Berlin interested in information theory, machine learning and AI"
   location         : "Berlin, Germany"
   employer         : "FU Berlin"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=EfwPnJQAAAAJ&hl=en"
   email            :
-  researchgate     :  "https://www.researchgate.net/profile/Rick_Fritschek"
+  researchgate     : "https://www.researchgate.net/profile/Rick_Fritschek"
   uri              :
   bitbucket        :
   codepen          :
