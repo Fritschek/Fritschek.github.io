@@ -1,13 +1,13 @@
 o# main links links
 main:
-  - title: "Research Overview"
-    url: /overview/
+  #- title: "Research Overview"
+  #  url: /overview/
     
   - title: "Publications"
     url: /publications/
 
-  - title: "Professional Activity"
-    url: /activity/    
+  #- title: "Professional Activity"
+  #  url: /activity/    
 
   - title: "Teaching"
     url: /teaching/    
