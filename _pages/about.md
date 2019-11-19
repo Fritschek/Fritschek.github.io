@@ -21,7 +21,7 @@ redirect_from:
     * Deep learning (related to communications and estimation)
     * Statistics
  
-# Funding
+## Funding
 * I am a principal investigator of the DFG-funded project "Machine Learning for Phyiscal Layer Security"
  (joint project with [Rafael Schaefer](http://www.user.tu-berlin.de/rafaelfs/) from [TU Berlin](https://www.tu-berlin.de/menue/home/parameter/en/))
  
@@ -31,5 +31,12 @@ redirect_from:
     * Novel security metrics for neural network based communication techniques
 
 
-# Recent News
+## Recent News
 * Oktober, 2019. I have started working at FU Berlin
+
+## Contact
+Email: rick.fritschek at fu-berlin.de, 
+       fritschek at tu-berlin.de
+<address>
+  Freie Universität Berlin <br /> Department of Mathematics and Computer Science<br /> Institute for Computer Science<br /> Takustr. 9<br /> 14195, Berlin
+</address>
