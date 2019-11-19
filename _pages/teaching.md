@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Rick Fritschek"
+title: "Teaching"
 permalink: /teaching/
 author_profile: true
 
