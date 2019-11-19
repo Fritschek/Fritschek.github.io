@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Rick Fritschek
+title                    : "Rick Fritschek"
 title_separator          : "-"
 name                     : &name "Rick Fritschek"
 description              : &description "Research scientist at FU Berlin"
