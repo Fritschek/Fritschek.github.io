@@ -14,7 +14,7 @@ Education
 ======
 * B.Sc. in Electrical Engineering, Hochschule Furtwangen, 2010
 * M.Sc. in Electrical Engineering, Technische Universität Berlin, 2012
-* Ph.D in Electrical Engineering, Technische Universität Berlin, 2018
+* Ph.D. in Electrical Engineering, Technische Universität Berlin, 2018
 
 Work experience
 ======
@@ -28,10 +28,10 @@ Work experience
   * Postdoctoral Researcher at Freie Universität Berlin
 
 * October 2015 - June 2018:
-  * Ph.D Student at Freie Universität Berlin
+  * Ph.D. Student at Freie Universität Berlin
 
 * September 2012 - September 2015:
-  * Ph.D Student at Technische Universität Berlin
+  * Ph.D. Student at Technische Universität Berlin
   
 * September 2009 - December 2009:
   * Undergraduate Researcher at Karlsruher Institut für Technologie
