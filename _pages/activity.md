@@ -5,8 +5,6 @@ permalink: /activity/
 author_profile: true
 ---
 
-{% include base_path %}
-
 ## Teaching
 
 Working as a reasearch associate, I was involved in teaching the courses:
