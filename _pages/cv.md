@@ -10,14 +10,14 @@ redirect_from:
 {% include base_path %}
 [PDF of my CV](http://fritschek.github.io/files/CV2.pdf)
 
-Education
-======
+## Education
+
 * B.Sc. in Electrical Engineering, Hochschule Furtwangen, 2010
 * M.Sc. in Electrical Engineering, Technische Universität Berlin, 2012
 * Ph.D. in Electrical Engineering, Technische Universität Berlin, 2018
 
-Work experience
-======
+## Work experience
+
 * Oktober 2019 - Present:
   * Postdoctoral Researcher at Freie Universität Berlin
 
@@ -37,8 +37,8 @@ Work experience
   * Undergraduate Researcher at Karlsruher Institut für Technologie
 
 
-Skills
-======
+## Skills
+
 * Languages: 
   * German (native)
   * English (proficient)
@@ -53,8 +53,8 @@ Skills
   * C/C++
   * MCNP5
 
-Publications
-======
+## Publications
+
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
