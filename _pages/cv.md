@@ -12,29 +12,29 @@ redirect_from:
 
 ## Education
 
-* B.Sc. in Electrical Engineering, Hochschule Furtwangen, 2010
-* M.Sc. in Electrical Engineering, Technische Universität Berlin, 2012
-* Ph.D. in Electrical Engineering, Technische Universität Berlin, 2018
+* **Ph.D.** in Electrical Engineering, Technische Universität Berlin, 2018
+* **M.Sc.** in Electrical Engineering, Technische Universität Berlin, 2012
+* **B.Sc.** in Electrical Engineering, Hochschule Furtwangen, 2010
 
 ## Work experience
 
-* Oktober 2019 - Present:
-  * Postdoctoral Researcher at Freie Universität Berlin
+* _Postdoctoral Researcher_ at Freie Universität Berlin, Oktober 2019 - Present
+  * Working on the project "Machine Learning for Physical Layer Security"
 
-* May 2019 - September 2019:
-  * Postdoctoral Researcher at Technische Universität Berlin
+* _Postdoctoral Researcher_ at Technische Universität Berlin, May 2019 - September 2019
+  * Working on deep learning based channel coding technqiues
 
-* July 2018 - April 2019:
-  * Postdoctoral Researcher at Freie Universität Berlin
+* _Postdoctoral Researcher_ at Freie Universität Berlin, July 2018 - April 2019
+  * Working on deep learning based channel coding technqiues for security
 
-* October 2015 - June 2018:
-  * Ph.D. Student at Freie Universität Berlin
+* _Ph.D. Student_ at Freie Universität Berlin, October 2015 - June 2018
+  * Research Topic: Capacity approximations for physical layer security
 
-* September 2012 - September 2015:
-  * Ph.D. Student at Technische Universität Berlin
+* _Ph.D. Student_ at Technische Universität Berlin, September 2012 - September 2015
+  * Research Topic: Capacity approximations for multi-user networks
   
-* September 2009 - December 2009:
-  * Undergraduate Researcher at Karlsruher Institut für Technologie
+* _Undergraduate Researcher_ at Karlsruher Institut für TechnologieSeptember 2009 - December 2009
+  * Simulation of radiation inside the interim storage facility for nuclear waste
 
 
 ## Skills
@@ -52,10 +52,4 @@ redirect_from:
   * Matlab
   * C/C++
   * MCNP5
-
-## Publications
-
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
  
