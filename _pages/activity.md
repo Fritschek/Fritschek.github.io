@@ -9,7 +9,7 @@ author_profile: true
 ## Teaching
 Working as a reasearch associate, I was involved in teaching the courses:
 
-#### Courses at the Technische Universität Berlin
+### Courses at the Technische Universität Berlin
 
 * **Lecture**: Information Theory I
   * **Resp.**: Teaching assistant
@@ -19,7 +19,7 @@ Working as a reasearch associate, I was involved in teaching the courses:
   * **Resp.**: Teaching assistant
   * **Year**: Summer 2015
 
-#### Courses at the Freie Universität Berlin
+### Courses at the Freie Universität Berlin
 
 * **Lecture**: Physical Layer Security
   * **Resp.**: Teaching assistant
