@@ -1,5 +1,4 @@
 ---
-layout: archive
 title: "Professional Activities and Service"
 permalink: /activity/
 author_profile: true
