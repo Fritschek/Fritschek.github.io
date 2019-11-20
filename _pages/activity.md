@@ -6,7 +6,6 @@ author_profile: true
 ---
 
 ## Teaching
-
 Working as a reasearch associate, I was involved in teaching the courses:
 ### Courses at the Technische Universität Berlin
 
@@ -25,7 +24,6 @@ Working as a reasearch associate, I was involved in teaching the courses:
   * **Year**: Winter 2016 and Winter 2017
 
 ## Organizing
-
 * I am organizing the special session on Machine Learning for Physical Layer Security and Privacy at [IEEE ICASSP ’20](https://2020.ieeeicassp.org/)
 (with Rafael Schaefer and Gerhard Wunder)
 
