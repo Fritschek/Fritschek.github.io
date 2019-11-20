@@ -26,6 +26,12 @@ Working as a reasearch associate, I was involved in teaching the courses:
 * I am organizing the special session on Machine Learning for Physical Layer Security and Privacy at [IEEE ICASSP ’20](https://2020.ieeeicassp.org/)
 (with Rafael Schaefer and Gerhard Wunder)
 
+## Talks
+* DFG Coin Workshop, Bitz, Nov. 2013, ''There is Duality in the (LDM) Cellular Channel''
+* ITG Fachgruppe ''Angewandte Informationstheorie'', Technische Universität München, ''Multiuser GDoF Gains in Cellular Networks: Achievable Rates and Upper Bounds beyond the Interference Channel Regimes''
+* ITG Fachgruppe ''Angewandte Informationstheorie'', ''Emerging Trends in 5G”, Ruhr Universität Bochum, “Deterministic Models for Physical Layer Security and Key generation Analysis''
+* Conference talks at CNS 2017 (Las Vegas), ISIT 2016 (Barcelona), ISIT 2015 (Hong Kong), ICC 2014 (Sydney)
+
 ## Reviewer
 
 * I am a reviewer for IEEE Trans. on {Wireless Comm., Information Forensics and Sec., Information Theory}
