@@ -22,7 +22,7 @@ redirect_from:
     * Statistics
  
 ## Funding
-* I am a principal investigator of the DFG-funded project "Machine Learning for Phyiscal Layer Security"
+* I am a principal investigator of the DFG-funded project "Machine Learning for Physical Layer Security"
  (joint project with [Rafael Schaefer](http://www.user.tu-berlin.de/rafaelfs/) from [TU Berlin](https://www.tu-berlin.de/menue/home/parameter/en/))
  
  * We are looking into:
