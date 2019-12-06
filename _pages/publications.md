@@ -5,9 +5,8 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if author.googlescholar %}
-  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
-{% endif %}
+
+ You can also find my articles on <u><a href="https://scholar.google.com/citations?user=EfwPnJQAAAAJ&hl=en">my Google Scholar profile</a>.</u>
 
 {% include base_path %}
 
@@ -22,28 +21,28 @@ author_profile: true
 2. **Rick Fritschek**, Rafael F. Schaefer, Gerhard Wunder, ''Deep Learning for the Gaussian Wiretap Channel'',
   in *Proc. IEEE International Conference on Communications (ICC)*, Shanghai, China, 2019 [[preprint](https://arxiv.org/pdf/1810.12655.pdf)] [[code](https://github.com/Fritschek/NN_GWTC)]
 
-3. Gerhard Wunder, Ingo Roth, **Rick Fritschek**, Benedikt Groß, Jens Eisert, 'Secure massive IoT using hierarchical fast blind deconvolution', in *Proc. IEEE Wireless Communications and Networking Conference Workshops (WCNCW)*, 2018
+3. Gerhard Wunder, Ingo Roth, **Rick Fritschek**, Benedikt Groß, Jens Eisert, 'Secure massive IoT using hierarchical fast blind deconvolution', in *Proc. IEEE Wireless Communications and Networking Conference Workshops (WCNCW)*, 2018 [[preprint](https://arxiv.org/pdf/1801.09628.pdf)]
 
 4. **R. Fritschek** and G. Wunder, ''On Full-Duplex Secure Key Generation with Deterministic Models'', in
    *IEEE CNS: The 4th Workshop on Physical-Layer Methods for Wireless Security*, NV, Las Vegas, 2017, **invited**
 
-5. Gerhard Wunder, Ingo Roth, **Rick Fritschek**, Jens Eisert, ''HiHTP: A Custom-Tailored Hierarchical Sparse Detector for Massive MTC'' in *Asilomar Conference on Signals, Systems and Computers*, 2017
+5. Gerhard Wunder, Ingo Roth, **Rick Fritschek**, Jens Eisert, ''HiHTP: A Custom-Tailored Hierarchical Sparse Detector for Massive MTC'' in *Asilomar Conference on Signals, Systems and Computers*, 2017 [[preprint](https://arxiv.org/pdf/1806.02754.pdf)]
 
 6. **R. Fritschek** and G. Wunder, ''On-The-Fly Secure Key Generation with Deterministic Models'', in 
-  *IEEE International Conference on Communications (ICC)*, Paris, France, 2017.
+  *IEEE International Conference on Communications (ICC)*, Paris, France, 2017. [[preprint](https://arxiv.org/pdf/1705.01325.pdf)]
 
 7. G. Wunder, **R. Fritschek** and R. Khan, ''RECiP: Wireless channel reciprocity restoration method for varying transmission power'', in *Proc. IEEE 27th Annual International Symposium on Personal, Indoor, and Mobile Radio Communications (PIMRC)*, 2016.
 
-8. **R. Fritschek** and G. Wunder, ''Towards a Constant-Gap Sum-Capacity Result for the Gaussian Wiretap Channel with a Helper'', in *Proc. IEEE International Symposium on Information Theory (ISIT)*, Barcelona, Spain, 2016.
+8. **R. Fritschek** and G. Wunder, ''Towards a Constant-Gap Sum-Capacity Result for the Gaussian Wiretap Channel with a Helper'', in *Proc. IEEE International Symposium on Information Theory (ISIT)*, Barcelona, Spain, 2016. [[preprint](https://arxiv.org/pdf/1601.06437.pdf)]
 
 9. **R. Fritschek** and G. Wunder, ''Constant-Gap Sum-Capacity Approximation of the Deterministic Interfering Multiple Access Channel'', in *Proc. IEEE International Symposium on Information Theory (ISIT)*, Hong Kong, China, 2015.
 
 10. **R. Fritschek** and G. Wunder, ''Deterministic imac revisited: Constant-Gap Capacity in the weak interference case'',
    in *Proc. IEEE International Conference on Communications (ICC)*, London, UK, 2015.
 
-11. **R. Fritschek** and G. Wunder, ''Enabling the multi-user generalized degrees of freedom in the Gaussian cellular channel'', in *Proc. IEEE Information Theory Workshop (ITW)*, Hobart, Australia, 2014.
+11. **R. Fritschek** and G. Wunder, ''Enabling the multi-user generalized degrees of freedom in the Gaussian cellular channel'', in *Proc. IEEE Information Theory Workshop (ITW)*, Hobart, Australia, 2014. [[preprint](https://arxiv.org/pdf/1408.5072.pdf)]
 
-12. **R. Fritschek** and G. Wunder, ''Upper bounds and duality relations of the linear deterministic sum capacity for cellular systems'', in /Proc. IEEE International Conference on Communications (ICC)/, Sydney, Australia, 2014.
+12. **R. Fritschek** and G. Wunder, ''Upper bounds and duality relations of the linear deterministic sum capacity for cellular systems'', in /Proc. IEEE International Conference on Communications (ICC)/, Sydney, Australia, 2014.[[preprint](https://arxiv.org/pdf/1408.5057.pdf)]
 
 
 ## Book Chapters
