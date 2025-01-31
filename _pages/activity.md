@@ -9,7 +9,7 @@ author_profile: true
 (with Rafael Schaefer and Gerhard Wunder)
 
 ## Grants
-* I was principal investigator for the DFG-funded project "Machine Learning for Physical Layer Security", with a total budget of over 400k for two years
+* I was principal investigator for the DFG-funded project "Machine Learning for Physical Layer Security"
 
 ## Talks
 * DFG Coin Workshop, Bitz, Nov. 2013, ''There is Duality in the (LDM) Cellular Channel''
