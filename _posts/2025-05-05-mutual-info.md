@@ -20,13 +20,8 @@ mutual information (MI):
 * **MINE** (Belghazi et al. 2018)  
 * InfoNCE / SimCLR variants  
 
-All rely on a sample-based **lower bound**
-
-\[
-\widehat I_{\mathrm{LB}} \;\le\; I(X;Y),
-\]
-
-computed on a minibatch of size $N$.
+All rely on a sample-based lower bounds \(\widehat I_{\mathrm{LB}} \le I(X;Y)\)
+computed on a minibatch or sample of size $N$.
 Empirically one sees a ceiling
 
 \[
