@@ -202,6 +202,7 @@ plt.xlabel('x'); plt.ylabel('pdf')
 plt.title(f'Adversarial spike (ε={eps}, unseen by N={N} samples)')
 plt.legend(frameon=False); plt.tight_layout()
 plt.savefig('adversarial_spike.png', dpi=150)
+```
 {% endraw %}
 
 <\details>
