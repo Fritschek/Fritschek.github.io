@@ -10,147 +10,96 @@ tags: [mutual-information, estimation, impossibility]
 
 ---
 
-## 1  Background & Motivation
+## 1. Background & Motivation
 
-Modern representation-learning methods often maximise or estimate
-mutual information (MI):
+Mutual information (MI) plays a central role in modern representation learning. From the classic InfoMax principle of Bell & Sejnowski (1995), to more recent self-supervised methods like Contrastive Predictive Coding (CPC), MINE, and InfoNCE-based models such as SimCLR, estimating or maximizing MI has become a popular strategy for learning useful features from data.
 
-* **InfoMax** (Bell & Sejnowski 1995)  
-* **Contrastive Predictive Coding** (Oord et al. 2018)  
-* **MINE** (Belghazi et al. 2018)  
-* InfoNCE / SimCLR variants  
+Despite the diversity of these methods, they all share a common foundation: they rely on lower bounds of mutual information estimated from finite samples. Formally, given a sample of size $N$, the algorithm computes a bound $\widehat I_{\mathrm{LB}} \le I(X;Y)$, hoping that it gets close to the true value.
 
-All rely on a sample-based lower bounds $\widehat I_{\mathrm{LB}} \le I(X;Y)$
-computed on a minibatch or sample of size $N$.
-Empirically one sees a ceiling
+However, practitioners have noticed a curious and frustrating pattern: no matter how clever the method, these lower bounds tend to saturate around $\ln N$ nats (or $\log_2 N$ bits). For example, doubling the batch size leads to roughly a $\ln 2$ increase in the bound—but only up to a point. Beyond that, improvements flatten out.
 
-$$
-\widehat I_{\mathrm{LB}} \;\approx\; \ln N
-\quad\text{(nats)}
-\quad\bigl(\log_2 N \text{ bits}\bigr).
-$$
-
-McAllester & Stratos (2020) prove this ceiling is
-**information-theoretically unavoidable** if you demand
-
-1. **Distribution-free:** works for *every* underlying distribution.  
-2. **High confidence:**  
-   $\Pr\bigl[\widehat B(S) \le \text{true value}\bigr] \ge 1-\delta$.
+McAllester and Stratos (2020) showed that this behavior isn’t just a practical nuisance—it’s an **information-theoretic limitation**. If your estimator is required to work on arbitrary distributions (i.e., “distribution-free”) and to provide valid lower bounds with high probability (say, with confidence $1 - \delta$), then it cannot exceed a constant times $\ln N$. In other words, **no universal, high-confidence lower bound can grow faster than logarithmically in the sample size**.
 
 ---
 
-## 2  The Limitation in One Line
+## 3. Geometric Intuition — The Hidden Spike
 
-**Theorem (informal).**  
-For any such estimator using $N$ samples,
+To see why the $\ln N$ ceiling is unavoidable, consider a simple trick an adversary can play on your data.
+
+Start with a nice, well-behaved distribution $p(x)$. Now define a new distribution $\tilde{p}(x)$ that’s almost identical to $p$, except it hides a tiny spike:
 
 $$
-\boxed{\;
-  \widehat B(S)\; \le\; C\,\ln N
-\;}
-\qquad(\text{with high probability}),
+\tilde{p}(x) = \left(1 - \frac{1}{N} \right) p(x) + \frac{1}{N} s(x),
 $$
 
-whether $\widehat B$ targets KL divergence, entropy, or mutual information.
+where $s(x)$ is sharply concentrated on a narrow region or unseen symbol. This spike carries just $1/N$ of the total probability mass.
+
+Now sample $N$ points from $\tilde{p}$. With probability close to $e^{-1}$, none of them land in the spike — so the sample is indistinguishable from one drawn from $p$. Yet the spike can drastically lower the entropy, KL divergence, or mutual information of the true distribution.
+
+If a lower-bound estimator were to output a value larger than $\ln N$, it would be wrong on such a batch with non-negligible probability. To avoid this, it must stay below $O(\ln N)$, even when the true value is higher. That’s the geometric core of the impossibility.
 
 ---
 
-## 3  Geometric Intuition — The Hidden Spike
+## 4. Formal Sketch (KL Version)
 
-1. Start with a benign distribution $p$.  
-2. Adversary forms  
+Let’s sketch how this limitation plays out in the case of KL divergence.
 
-   $$
-   \tilde p(x) \;=\;
-   \Bigl(1-\tfrac1N\Bigr)\,p(x)
-   \;+\;
-   \tfrac1N\,s(x),
-   $$
-
-   where $s(x)$ is a razor-thin **spike** (or unseen symbols in discrete
-   space).  
-3. With probability $(1-\tfrac1N)^N \gtrsim e^{-1}$ **no sample** lands
-   in the spike, so the batch looks identical to one from $p$.  
-4. Yet the spike can reduce the true entropy/KL/MI to
-   $\le \ln N$.  
-5. Any lower-bound routine certifying $>\ln N$ would be wrong on that
-   batch $\Rightarrow$ must never exceed $O(\ln N)$.
-
----
-
-
-The picture should show:
-
-* orange — baseline uniform pdf $p(x)$;  
-* red — spike holding $1/N$ mass in width $w$;  
-* black — $N$ samples, none in spike.
-
-See the code in §8 to generate the figure.
-
----
-
-## 4  Formal Sketch (KL Version)
-
-1. **Goal**  Output $B(S)$ with  
-   $B(S) \le D_{\mathrm{KL}}(p\Vert q)$ (confidence $1-\delta$).  
-
-2. **Adversary**  Mix $q$ with $p$:
-
-  $$
-   \tilde q(x)=\Bigl(1-\tfrac1N\Bigr)q(x)+\tfrac1N\,p(x).
-   $$
-
-3. **True KL is small**  
-   $\tilde q(x)\ge \tfrac1N p(x)\;\Rightarrow\;
-    D_{\mathrm{KL}}(p\Vert\tilde q)\le\ln N.$
-
-4. **Indistinguishability**  
-   No-spike sample $\;\Rightarrow\; S\sim \tilde q^N$
-   indistinguishable from $q^N$.
-
-5. **Therefore**  $B(S) > \ln N + \mathrm{const}$ would violate the
-   guarantee with $\ge 25\%$ probability.  
-   Hence $B(S) \le \ln N + \mathrm{const}$ w.h.p.
-
-A similar construction yields the entropy bound; since
-$I(X;Y)$ is a KL, the same ceiling applies to MI.
-
----
-
-## 5  Why the Ceiling Is Logarithmic
-
-A hidden mass $\tfrac1N$ has information content
-$-\ln\tfrac1N = \ln N$.  
-That is the **maximum surprise** a never-observed event can carry;
-any universal bound must hedge against it.
-
----
-
-## 6  Upper Bounds Are Fine
-
-Missing a rare event *under-estimates* entropy/KL, which is harmless for
-**upper** bounds.  
-Simple concentration gives
+Suppose you want to estimate $D_{\mathrm{KL}}(p \Vert q)$ from a finite sample $S \sim p^N$, and your estimator $B(S)$ is required to be a high-confidence lower bound. That is, it must satisfy
 
 $$
-H(p)\;\le\; \widehat H_{\text{emp}}
-          + O\!\Bigl(\sqrt{\tfrac{\ln(1/\delta)}{N}}\Bigr),
+\Pr\left[ B(S) \le D_{\mathrm{KL}}(p \Vert q) \right] \ge 1 - \delta.
 $$
 
-no $\ln N$ obstruction.  
-This motivates *Difference-of-Entropies* estimation:
+Now imagine the adversary modifies $q$ slightly by mixing in a bit of $p$, creating a new distribution:
 
 $$
-I(X;Y) = H(X) - H(X\!\mid Y)
-       \approx
-       \widehat H_{\text{cross}}(X)
-       -\widehat H_{\text{cross}}(X\!\mid Y),
+\tilde{q}(x) = \left(1 - \frac{1}{N} \right) q(x) + \frac{1}{N} p(x).
 $$
 
-which lacks a formal lower-bound guarantee but measures large MI in
-practice.
+This change guarantees that $\tilde{q}(x) \ge \frac{1}{N} p(x)$, and from this, it follows that
+
+$$
+D_{\mathrm{KL}}(p \Vert \tilde{q}) \le \ln N.
+$$
+
+At the same time, a batch of $N$ samples from $p$ is statistically very unlikely to detect the difference between $q$ and $\tilde{q}$, since the mass added to $p$ is only $1/N$. In fact, samples from $\tilde{q}^N$ and $q^N$ are nearly indistinguishable unless one of them lands in the spike — which happens with low probability.
+
+So if the estimator ever outputs a value greater than $\ln N$ on a batch that looks like it came from $q$, it risks being wrong under $\tilde{q}$ with nontrivial probability — violating the confidence guarantee.
+
+The safest strategy for the estimator is to stay below $\ln N + \text{const}$, regardless of the true KL. And since mutual information is itself a KL divergence, this same limitation applies directly to MI lower bounds as well.
 
 ---
+
+## 5. Why the Ceiling Is Logarithmic
+
+The $\ln N$ ceiling isn’t arbitrary — it has a clear information-theoretic origin. If an event has probability $1/N$, its information content is $-\ln(1/N) = \ln N$. That’s the amount of “surprise” you’d experience upon seeing it.
+
+Now consider a spike with mass $1/N$ that goes unobserved in a batch of size $N$. To guard against the possibility that such a spike exists — and that it dramatically reduces the true entropy or KL divergence — any estimator must be conservative. It can’t claim more than $\ln N$ without risking overestimation in adversarial cases.
+
+This is the key point: the logarithmic growth reflects the maximum information an unseen but plausible event could carry. No estimator that promises universal, high-confidence lower bounds can afford to ignore that risk.
+
+---
+
+## 6. Upper Bounds Are Fine
+
+Interestingly, this limitation only applies to **lower bounds**. If you're trying to *underestimate* something like entropy or mutual information, missing rare events is dangerous. But if you're estimating from above — say, bounding entropy from above — then missing a spike is harmless.
+
+This is because any rare, unobserved event can only make the true value lower than your estimate. As a result, simple concentration arguments can give you high-confidence **upper bounds** on entropy like:
+
+$$
+H(p) \le \widehat{H}_{\text{emp}} + O\left( \sqrt{\frac{\ln(1/\delta)}{N}} \right),
+$$
+
+where $\widehat{H}_{\text{emp}}$ is the empirical entropy from the sample.
+
+This logic underlies practical estimators like the **difference-of-entropies** approach to mutual information:
+
+$$
+I(X;Y) = H(X) - H(X \mid Y) \approx \widehat{H}_{\text{cross}}(X) - \widehat{H}_{\text{cross}}(X \mid Y),
+$$
+
+which uses cross-entropy losses as proxies for upper bounds. While these do not guarantee a lower bound on $I(X;Y)$, they’re often able to track large mutual information values effectively in practice — especially when paired with good models and sufficient data.
+
 
 ## 7  Practical Lessons
 
