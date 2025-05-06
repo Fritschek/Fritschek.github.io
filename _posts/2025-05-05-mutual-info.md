@@ -165,6 +165,7 @@ practice.
 
 <details>
 <summary>Show Python code</summary>
+
 <pre><code class="language-python">
 import numpy as np
 import matplotlib.pyplot as plt
@@ -201,4 +202,5 @@ plt.title(f'Adversarial spike (ε={eps}, unseen by N={N} samples)')
 plt.legend(frameon=False); plt.tight_layout()
 plt.savefig('adversarial_spike.png', dpi=150)
 </code></pre>
+
 <\details>
