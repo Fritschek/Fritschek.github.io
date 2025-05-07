@@ -12,21 +12,27 @@ tags: [mutual-information, estimation, impossibility]
 
 ## 1. Background & Motivation
 
-Mutual information (MI) plays a central role in modern representation learning. From the classic InfoMax principle of Bell & Sejnowski (1995), to more recent self-supervised methods like Contrastive Predictive Coding (CPC), MINE, and InfoNCE-based models such as SimCLR, estimating or maximizing MI has become a popular strategy for learning useful features from data.
+Mutual information (MI) plays a central role in information theory, communication theory and modern representation learning. Recent advances in neural networks, and the easier handling of variational results for practical application led to a rejuvenation of old representations of Kullback-Leibler divergence, i.e., the Donsker-Varadhan based lower bound, which was investigated in MINE. Also other lower bounds for mutual information got renewed interest such as the Nguyien-Wainwright-Jordan lower bound. Or the more recent noise-contrastive method, the InfoNCE. In representation learning, these estimators can be used to learn from maximizing feature information in data. In communication theory, these estimators can be used to learn for example optimal encoding. I refer to the overview paper by Poole et al for a comprehensive overview.
 
-Despite the diversity of these methods, they all share a common foundation: they rely on lower bounds of mutual information estimated from finite samples. Formally, given a sample of size $N$, the algorithm computes a bound $\widehat I_{\mathrm{LB}} \le I(X;Y)$, hoping that it gets close to the true value.
+All these recent bounds rely on lower bounds of mutual information estimated from finite samples. Formally, given a sample of size $N$, the algorithm computes a bound $\widehat I_{\mathrm{LB}} \le I(X;Y)$, hoping that it gets close to the true value, be approximating from below.
 
-However, practitioners have noticed a curious and frustrating pattern: no matter how clever the method, these lower bounds tend to saturate around $\ln N$ nats (or $\log_2 N$ bits). For example, doubling the batch size leads to roughly a $\ln 2$ increase in the bound—but only up to a point. Beyond that, improvements flatten out.
+However, in practice the bounds MINE, NWJ and derivtes exibit high variance, and estimates fluctuate below AND above the true MI value, seemingly contradicting the theoretical results. The InfoNCE bound exibits very low variance but its MI value is limited to $\log N$, where $N$ is the batch size.
 
-McAllester and Stratos (2020) showed that this behavior isn’t just a practical nuisance—it’s an **information-theoretic limitation**. If your estimator is required to work on arbitrary distributions (i.e., “distribution-free”) and to provide valid lower bounds with high probability (say, with confidence $1 - \delta$), then it cannot exceed a constant times $\ln N$. In other words, **no universal, high-confidence lower bound can grow faster than logarithmically in the sample size**.
+McAllester and Stratos (2020) showed that this behavior is an inherent **limitation**. If an estimator is required to work on arbitrary distributions (i.e., “distribution-free”) and to provide valid lower bounds with high probability (say, with confidence $1 - \delta$), then it cannot exceed a constant times $\log N$. In other words, **no universal, high-confidence lower bound can grow faster than logarithmically in the sample size**.
 
 ---
 
-## 3. Geometric Intuition — The Hidden Spike
+## 2. Intuition — (Hidden Spikes in Data)
 
-To see why the $\ln N$ ceiling is unavoidable, consider a simple trick an adversary can play on your data.
+# 2.1 The discrete case
+Lets have a look at a uniform distribution, which maximizes the entropy.
+We know that $I(X;Y) = H(X) - H(X;Y) \le H(X)$. I.e. MI is a lower bound for entropy. Now, a uniform distribution on some finite interval maximizes the entropy. Any spike in this distribution lowers the entropy. So the sampling mechanism needs to hit the spike, to accurately estimate the entropy. As the entropy upper bounds the MI, it can be seen how this problem directly translates to MI.
 
-Start with a nice, well-behaved distribution $p(x)$. Now define a new distribution $\tilde{p}(x)$ that’s almost identical to $p$, except it hides a tiny spike:
+# 2.2 The continues case
+
+To see why the $\log N$ ceiling is unavoidable, consider a simple trick an adversary can play on your data.
+
+Start with a nice, well-behaved distribution $p(x)$. Now define a new distribution $\tilde{p}(x)$ that’s almost identical to $p$, except it hides a tiny spike $s(x)$:
 
 $$
 \tilde{p}(x) = \left(1 - \frac{1}{N} \right) p(x) + \frac{1}{N} s(x),
@@ -34,15 +40,11 @@ $$
 
 where $s(x)$ is sharply concentrated on a narrow region or unseen symbol. This spike carries just $1/N$ of the total probability mass.
 
-Now sample $N$ points from $\tilde{p}$. With probability close to $e^{-1}$, none of them land in the spike — so the sample is indistinguishable from one drawn from $p$. Yet the spike can drastically lower the entropy, KL divergence, or mutual information of the true distribution.
+Now sample $N$ points from $\tilde{p}$. With probability $(1-\frac{1}{N})^N$, the sample never hits the spike so the sample is indistinguishable from one drawn from $p$. For $N=2$ this is $1/4$, converging to $e^{-1}$ for $N\leftarrow \infty$.  Yet the spike can drastically lower the entropy, KL divergence, or mutual information of the true distribution, as argued above.
 
-If a lower-bound estimator were to output a value larger than $\ln N$, it would be wrong on such a batch with non-negligible probability. To avoid this, it must stay below $O(\ln N)$, even when the true value is higher. That’s the geometric core of the impossibility.
+# 2.3 Sketch of the $\log N$ bound (KL Version)
 
----
-
-## 4. Formal Sketch (KL Version)
-
-Let’s sketch how this limitation plays out in the case of KL divergence.
+Let’s see how this limitation plays out in the case of KL divergence.
 
 Suppose you want to estimate $D_{\mathrm{KL}}(p \Vert q)$ from a finite sample $S \sim p^N$, and your estimator $B(S)$ is required to be a high-confidence lower bound. That is, it must satisfy
 
