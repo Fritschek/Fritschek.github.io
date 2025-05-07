@@ -24,11 +24,11 @@ McAllester and Stratos (2020) showed that this behavior is an inherent **limitat
 
 ## 2. Intuition — (Hidden Spikes in Data)
 
-# 2.1 The discrete case
+### 2.1 The discrete case
 Lets have a look at a uniform distribution, which maximizes the entropy.
 We know that $I(X;Y) = H(X) - H(X;Y) \le H(X)$. I.e. MI is a lower bound for entropy. Now, a uniform distribution on some finite interval maximizes the entropy. Any spike in this distribution lowers the entropy. So the sampling mechanism needs to hit the spike, to accurately estimate the entropy. As the entropy upper bounds the MI, it can be seen how this problem directly translates to MI.
 
-# 2.2 The continues case
+### 2.2 The continues case
 
 To see why the $\log N$ ceiling is unavoidable, consider a simple trick an adversary can play on your data.
 
@@ -42,7 +42,7 @@ where $s(x)$ is sharply concentrated on a narrow region or unseen symbol. This s
 
 Now sample $N$ points from $\tilde{p}$. With probability $(1-\frac{1}{N})^N$, the sample never hits the spike so the sample is indistinguishable from one drawn from $p$. For $N=2$ this is $1/4$, converging to $e^{-1}$ for $N\leftarrow \infty$.  Yet the spike can drastically lower the entropy, KL divergence, or mutual information of the true distribution, as argued above.
 
-# 2.3 Sketch of the $\log N$ bound (KL Version)
+### 2.3 Sketch of the $\log N$ bound (KL Version)
 
 Let’s see how this limitation plays out in the case of KL divergence.
 
