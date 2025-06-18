@@ -59,7 +59,7 @@ For $N=2$ this is $1/4$, converging to $e^{-1}$ for $N\leftarrow \infty$.  Yet t
 
 ### 2.3 Sketch of the $\log N$ bound (KL Version)
 
-Let’s see how this limitation plays out in the case of KL divergence.
+In the case of KL divergence we have the following.
 
 Suppose you want to estimate $D_{\mathrm{KL}}(p \Vert q)$ from a finite sample $S \sim p^N$, and your estimator $E(S)$ is required to be a high-confidence lower bound. 
 That is, it must satisfy
