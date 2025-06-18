@@ -102,6 +102,7 @@ And since mutual information is itself a KL divergence, this same limitation app
 [^Belghazi18]: Belghazi, M. I. *et al.* (2018).  
   **Mutual Information Neural Estimation (MINE)**.  
   *Proceedings of the 35th International Conference on Machine Learning*.
+
 [^NWJ10]: Nguyen, X., Wainwright, M. J., & Jordan, M. I. (2010).  
 **Estimating Divergence Functionals and the Likelihood Ratio by Convex Risk Minimization.**  
 *IEEE Transactions on Information Theory*, 56 (11), 5847-5861.  
