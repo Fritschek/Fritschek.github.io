@@ -25,7 +25,7 @@ Formally, given a sample of size $N$, the algorithm computes a bound $\widehat I
 However, in practice the bounds MINE, NWJ and others exibit high variance, and estimates fluctuate below AND above the true MI value, seemingly contradicting the theoretical results. The InfoNCE bound exibits very low variance but its MI value is limited to $\log N$, where $N$ is the batch size.
 
 [Note that Poole et al already showed that using Monte-Carlo approximation of the expectation terms in MINE, i.e. 
-$\mathcal{L}_{\text{MINE}}= \mathbb{E}_{p_{XY}}[f_\theta(X,Y)]- \log \mathbb{E}_{p_X p_Y}\!\bigl[e^{f_\theta(X,Y)}\bigr]$, yields neither lower nor upper bound due to the nonlinearity(log).]
+$\mathbb{E}_{p_{XY}}[f_\theta(X,Y)]- \log \mathbb{E}_{p_X p_Y}\!\bigl[e^{f_\theta(X,Y)}\bigr]$, yields neither lower nor upper bound due to the nonlinearity(log).]
 
 McAllester and Stratos (2020) showed that this behavior is an inherent **limitation**. 
 If an estimator is required to work on arbitrary distributions (i.e., “distribution-free”) and to provide valid lower bounds with high probability (say, with confidence $1 - \delta$), 
