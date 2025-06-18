@@ -15,7 +15,6 @@ Mutual information (MI) plays a central role in information theory, communicatio
 Recent advances in neural networks, and the easier realisation of variational results for practical applications led to a rejuvenation of old representations of Kullback-Leibler divergence, 
 i.e., the Donsker-Varadhan (DV) based lower bound, which was investigated in MINE [^Belghazi18]. 
 
-$$
 Also other lower bounds for mutual information got renewed interest such as the Nguyien-Wainwright-Jordan (NWJ) lower bound [^NWJ10]. 
 Or the more recent noise-contrastive method, the InfoNCE [^NCE10]. In representation learning, these estimators can be used to learn from maximizing feature information in data. 
 In communication theory, these estimators can be used to learn for example optimal encoding [^Fritschek19]. I refer to the overview paper by Poole et al [^Poole19] for a comprehensive overview.
@@ -25,9 +24,8 @@ Formally, given a sample of size $N$, the algorithm computes a bound $\widehat I
 
 However, in practice the bounds MINE, NWJ and others exibit high variance, and estimates fluctuate below AND above the true MI value, seemingly contradicting the theoretical results. The InfoNCE bound exibits very low variance but its MI value is limited to $\log N$, where $N$ is the batch size.
 
-[Note that Poole et al already showed that using Monte-Carlo approximation of the expectation terms in MINE, i.e. $\mathcal{L}_{\text{MINE}}
-      = \mathbb{E}_{p_{XY}}[f_\theta(X,Y)]
-        - \log \mathbb{E}_{p_X p_Y}\!\bigl[e^{f_\theta(X,Y)}\bigr]$, yields neither lower nor upper bound due to the nonlinearity(log).]
+[Note that Poole et al already showed that using Monte-Carlo approximation of the expectation terms in MINE, i.e. 
+$\mathcal{L}_{\text{MINE}}= \mathbb{E}_{p_{XY}}[f_\theta(X,Y)]- \log \mathbb{E}_{p_X p_Y}\!\bigl[e^{f_\theta(X,Y)}\bigr]$, yields neither lower nor upper bound due to the nonlinearity(log).]
 
 McAllester and Stratos (2020) showed that this behavior is an inherent **limitation**. 
 If an estimator is required to work on arbitrary distributions (i.e., “distribution-free”) and to provide valid lower bounds with high probability (say, with confidence $1 - \delta$), 
