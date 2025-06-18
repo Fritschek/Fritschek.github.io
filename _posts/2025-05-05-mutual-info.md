@@ -24,31 +24,16 @@ All these recent bounds rely on lower bounds of mutual information estimated fro
 Formally, given a sample of size $N$, the algorithm computes a bound $\widehat I_{\mathrm{LB}} \le I(X;Y)$, hoping that it gets close to the true value, by approximating from below.
 
 However, in practice the bounds MINE, NWJ and others exibit high variance, and estimates fluctuate below AND above the true MI value, seemingly contradicting the theoretical results. The InfoNCE bound exibits very low variance but its MI value is limited to $\log N$, where $N$ is the batch size.
-[Note that Poole et al already showed that using Monte-Carlo approximation of the expectation terms in MINE, i.e. \(\mathcal{L}_{\text{MINE}}
+
+[Note that Poole et al already showed that using Monte-Carlo approximation of the expectation terms in MINE, i.e. $\mathcal{L}_{\text{MINE}}
       = \mathbb{E}_{p_{XY}}[f_\theta(X,Y)]
-        - \log \mathbb{E}_{p_X p_Y}\!\bigl[e^{f_\theta(X,Y)}\bigr]\), yields neither lower nor upper bound due to the nonlinearity(log).]
+        - \log \mathbb{E}_{p_X p_Y}\!\bigl[e^{f_\theta(X,Y)}\bigr]$, yields neither lower nor upper bound due to the nonlinearity(log).]
+
 McAllester and Stratos (2020) showed that this behavior is an inherent **limitation**. 
 If an estimator is required to work on arbitrary distributions (i.e., “distribution-free”) and to provide valid lower bounds with high probability (say, with confidence $1 - \delta$), 
 then it cannot exceed a constant times $\log N$. In other words, **no universal, high-confidence lower bound can grow faster than logarithmically in the sample size**.
 
-[^Belghazi18]: Belghazi, M. I. *et al.* (2018).  
-  **Mutual Information Neural Estimation (MINE)**.  
-  *Proceedings of the 35th International Conference on Machine Learning*.
-[^NWJ10]: Nguyen, X., Wainwright, M. J., & Jordan, M. I. (2010).  
-**Estimating Divergence Functionals and the Likelihood Ratio by Convex Risk Minimization.**  
-*IEEE Transactions on Information Theory*, 56 (11), 5847-5861.  
 
-[^NCE10]: Gutmann, M., & Hyvärinen, A. (2010).  
-**Noise-Contrastive Estimation: A New Estimation Principle for Unnormalized Statistical Models.**  
-In *Proceedings of AISTATS 13*, 297-304.  
-
-[^Fritschek19]: Fritschek, R., Schaefer, R. F., & Wunder, G. (2019).  
-**Deep Learning for Channel Coding via Neural Mutual Information Estimation.**  
-In *Proceedings of the 2019 IEEE 20th International Workshop on Signal Processing Advances in Wireless Communications* (SPAWC), 1-5.  
-
-[^Poole19]: Poole, B., Ozair, S., van den Oord, A., Alemi, A. A., & Tucker, G. (2019).  
-&nbsp;&nbsp;**On Variational Bounds of Mutual Information.**  
-In *Proceedings of the 36th International Conference on Machine Learning* (ICML), 5171-5180.
 ---
 
 ## 2. Intuition — (Hidden Spikes in Data)
@@ -113,6 +98,27 @@ And since mutual information is itself a KL divergence, this same limitation app
 
 * Without strong assumptions (finite alphabet, parametric family,
   smoothness), **large lower bounds are impossible**.
+
+## Refs
+
+[^Belghazi18]: Belghazi, M. I. *et al.* (2018).  
+  **Mutual Information Neural Estimation (MINE)**.  
+  *Proceedings of the 35th International Conference on Machine Learning*.
+[^NWJ10]: Nguyen, X., Wainwright, M. J., & Jordan, M. I. (2010).  
+**Estimating Divergence Functionals and the Likelihood Ratio by Convex Risk Minimization.**  
+*IEEE Transactions on Information Theory*, 56 (11), 5847-5861.  
+
+[^NCE10]: Gutmann, M., & Hyvärinen, A. (2010).  
+**Noise-Contrastive Estimation: A New Estimation Principle for Unnormalized Statistical Models.**  
+In *Proceedings of AISTATS 13*, 297-304.  
+
+[^Fritschek19]: Fritschek, R., Schaefer, R. F., & Wunder, G. (2019).  
+**Deep Learning for Channel Coding via Neural Mutual Information Estimation.**  
+In *Proceedings of the 2019 IEEE 20th International Workshop on Signal Processing Advances in Wireless Communications* (SPAWC), 1-5.  
+
+[^Poole19]: Poole, B., Ozair, S., van den Oord, A., Alemi, A. A., & Tucker, G. (2019).  
+&nbsp;&nbsp;**On Variational Bounds of Mutual Information.**  
+In *Proceedings of the 36th International Conference on Machine Learning* (ICML), 5171-5180.
 
 ---
 
