@@ -93,7 +93,7 @@ $$
 
 This change guarantees that $\tilde{q}(x) \ge \frac{1}{N} p(x)$, and from this, it follows that
 
-$\frac{\tilde{q}(x)}{p(x)}\le N$ and therefore $\mathbb{E}[\log \frac{\tilde{q}(x)\ge}{p(x)}]\le \log N$ which is
+$\frac{\tilde{q}(x)}{p(x)}\le N$ and therefore $\mathbb{E}[\log \frac{\tilde{q}(x)}{p(x)}]\le \log N$ which is
 
 $$
 D_{\mathrm{KL}}(p \Vert \tilde{q}) \le \log N.
