@@ -125,7 +125,7 @@ In *Proceedings of the 36th International Conference on Machine Learning* (ICML)
 ---
 
 ## 8
-![Figure](/images/MISCapture.JPG)
+![Figure](/images/MISCapture2.JPG)
 <details>
 <summary>Show Python code</summary>
 
