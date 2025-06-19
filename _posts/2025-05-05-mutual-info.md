@@ -58,7 +58,7 @@ $$
 where $s(x)$ is sharply concentrated on a narrow region. This spike carries just $1/N$ of the total probability mass.
 
 Now sample $N$ points from $\tilde{p}$. With probability $(1-\frac{1}{N})^N$, the sample never hits the spike so the sample is indistinguishable from one drawn from $p$. 
-For $N=2$ this is $1/4$, converging to $e^{-1}$ for $N\leftarrow \infty$.  Yet the spike can drastically lower the entropy, KL divergence, or mutual information of the true distribution, as argued above.
+For $N=2$ this is $1/4$, converging to $e^{-1}$ for $N\rightarrow \infty$.  Yet the spike can drastically lower the entropy, KL divergence, or mutual information of the true distribution, as argued above.
 
 ### 2.3 Sketch of the $\log N$ bound (KL Version)
 
