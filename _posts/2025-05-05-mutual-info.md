@@ -125,7 +125,7 @@ In *Proceedings of the 36th International Conference on Machine Learning* (ICML)
 ---
 
 ## 8
-
+![Figure](MISCapture.JPG)
 <details>
 <summary>Show Python code</summary>
 
@@ -133,19 +133,21 @@ In *Proceedings of the 36th International Conference on Machine Learning* (ICML)
 import numpy as np
 import matplotlib.pyplot as plt
 
-N = 100          # batch size
-eps = 1/N        # hidden mass
+# ----------------  parameters ---------------------
+N     = 100      # batch size
+eps   = 1/N      # hidden mass
 width = 0.003    # spike width
-pos = 0.8        # spike start
+pos   = 0.8      # spike start (interval [pos, pos+width])
+# --------------------------------------------------
 
 # pdfs on [0,1]
-x = np.linspace(0, 1, 2000)
+x     = np.linspace(0, 1, 2000)
 p_pdf = np.ones_like(x)
 q_pdf = np.ones_like(x)*(1-eps)
 q_pdf += ((x>=pos) & (x<=pos+width)) * (eps/width)
 
-# sample N points from q_pdf  (naive rejection sampling)
-rng = np.random.default_rng(0)
+# draw N samples from q_pdf (simple rejection sampler)
+rng   = np.random.default_rng(42)
 samps = []
 while len(samps) < N:
     u = rng.random()
@@ -153,17 +155,22 @@ while len(samps) < N:
         samps.append(u)
 samps = np.array(samps)
 
+# count spike hits
+hits = np.sum((samps >= pos) & (samps <= pos + width))
+print(f"Spike hits: {hits} / {N}")
+
 # plot
 plt.figure(figsize=(9,3))
 plt.plot(x, p_pdf, label='p: uniform')
 plt.plot(x, q_pdf, label='tilde p: uniform + spike')
-plt.axvspan(pos, pos+width, color='red', alpha=0.25, label='spike')
+plt.axvspan(pos, pos + width, color='red', alpha=0.25, label='spike region')
 plt.scatter(samps, np.zeros_like(samps), marker='|', s=80, color='k', label='samples')
 plt.ylim(0, q_pdf.max()*1.1)
 plt.xlabel('x'); plt.ylabel('pdf')
-plt.title(f'Adversarial spike (ε={eps}, unseen by N={N} samples)')
+plt.title(f'Adversarial spike (ε={eps:.3f}, N={N}, hits={hits})')
 plt.legend(frameon=False); plt.tight_layout()
 plt.savefig('adversarial_spike.png', dpi=150)
+plt.show()
 ```
 {% endhighlight %} 
 
