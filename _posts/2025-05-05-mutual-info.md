@@ -106,7 +106,7 @@ Since mutual information is itself a KL divergence, this same limitation applies
 * Without strong assumptions (finite alphabet, parametric family,
   smoothness), **large lower bounds are impossible**.
 
-## Refs
+## 4 Refs
 
 [^Belghazi18]: Belghazi, M. I. *et al.* (2018).  
   **Mutual Information Neural Estimation (MINE)**.  
@@ -130,7 +130,7 @@ In *Proceedings of the 36th International Conference on Machine Learning* (ICML)
 
 ---
 
-## 4 Code and Visualization
+## 5 Code and Visualization
 ![Figure](/images/MISCapture2.JPG)
 <details>
 <summary>Show Python code</summary>
