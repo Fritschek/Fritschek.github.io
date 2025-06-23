@@ -13,22 +13,23 @@ tags: [mutual-information, estimation, impossibility]
 
 Mutual information (MI) plays a central role in information theory, communication theory and modern representation learning. 
 Recent advances in neural networks, and the easier realisation of variational results for practical applications led to a rejuvenation of old representations of Kullback-Leibler divergence, 
-i.e., the Donsker-Varadhan (DV) based lower bound, which was investigated in MINE [^Belghazi18]. 
+i.e., the Donsker-Varadhan (DV) based lower bound, which was investigated in MINE (Mutual Information Neural Estimation) [^Belghazi18]. 
 
-Also other lower bounds for mutual information got renewed interest such as the Nguyien-Wainwright-Jordan (NWJ) lower bound [^NWJ10]. 
-Or the more recent noise-contrastive method, the InfoNCE [^NCE10]. In representation learning, these estimators can be used to learn from maximizing feature information in data. 
-In communication theory, these estimators can be used to learn for example optimal encoding [^Fritschek19]. I refer to the overview paper by Poole et al [^Poole19] for a comprehensive overview.
+Also other lower bounds for mutual information got renewed interest such as the Nguyien-Wainwright-Jordan (NWJ) lower bound [^NWJ10], and the more recent noise-contrastive method, the InfoNCE [^NCE10]. 
+In representation learning, these estimators can be used to learn from maximizing feature information in data. 
+In communication theory, these estimators can be used to learn, for example, optimal encoding [^Fritschek19]. I refer to the overview paper by Poole et al. [^Poole19] for a comprehensive overview.
 
 All these recent bounds rely on lower bounds of mutual information estimated from finite samples. 
 Formally, given a sample of size $N$, the algorithm computes a bound $\widehat I_{\mathrm{LB}} \le I(X;Y)$, hoping that it gets close to the true value, by approximating from below.
 
-However, in practice the bounds MINE, NWJ and others exibit high variance, and estimates fluctuate below AND above the true MI value, seemingly contradicting the theoretical results. The InfoNCE bound exibits very low variance but its MI value is limited to $\log N$, where $N$ is the batch size.
+However, in practice the bounds linke MINE, NWJ and others exhibit high variance, and estimates fluctuate below AND above the true MI value, seemingly contradicting the theoretical results. 
+The InfoNCE bound exhibits very low variance, but its MI value is limited to $\log N$, where $N$ is the batch size.
 
-[Note that Poole et al already showed that using Monte-Carlo approximation of the expectation terms in MINE, i.e. 
+[Note that Poole et al. already showed that using Monte-Carlo approximation of the expectation terms in MINE, i.e. 
 $$
 \mathbb{E}_{p_{XY}}[f_\theta(X,Y)]- \log \mathbb{E}_{p_X p_Y}\!\bigl[e^{f_\theta(X,Y)}\bigr]
 $$,
-yields neither lower nor upper bound due to the nonlinearity(log).]
+yields neither a lower nor an upper bound due to the nonlinearity (log).]
 
 McAllester and Stratos (2020) showed that this behavior is an inherent **limitation**. 
 If an estimator is required to work on arbitrary distributions (i.e., “distribution-free”) and to provide valid lower bounds with high probability (say, with confidence $1 - \delta$), 
@@ -41,11 +42,16 @@ then it cannot exceed a constant times $\log N$. In other words, **no universal,
 
 ### 2.1 The discrete case
 Lets have a look at a uniform distribution, which maximizes the entropy.
-We know that $I(X;Y) = H(X) - H(X;Y) \le H(X)$. So MI is a lower bound for entropy. Now, a uniform distribution on some finite interval maximizes the entropy. 
+We know that $I(X;Y) = H(X) - H(X|Y) \le H(X)$. Therefore MI is a lower bound for entropy. Given a finite support interval, the uniform distribution maximizes the entropy. 
 Any spike in this distribution lowers the entropy. So the sampling mechanism needs to hit the spike, to accurately estimate the entropy. 
 As the entropy upper bounds the MI, it can be seen how this problem directly translates to MI.
 
 ### 2.2 The continues case
+
+**Note.** For continuous variables, the uniform density on a finite interval \([a,b]\) still maximises differential entropy,  
+but \(h(X)\) itself can be **negative**.  Consequently, the shortcut \(I(X;Y)\le h(X)\) that worked in the 
+discrete case no longer provides a useful upper bound on mutual information and the proof must instead rely on the KL–divergence
+formulation.
 
 To see why the $\log N$ ceiling is unavoidable, consider a simple trick an adversary can play on your data.
 
@@ -58,7 +64,7 @@ $$
 where $s(x)$ is sharply concentrated on a narrow region. This spike carries just $1/N$ of the total probability mass.
 
 Now sample $N$ points from $\tilde{p}$. With probability $(1-\frac{1}{N})^N$, the sample never hits the spike so the sample is indistinguishable from one drawn from $p$. 
-For $N=2$ this is $1/4$, converging to $e^{-1}$ for $N\rightarrow \infty$.  Yet the spike can drastically lower the entropy, KL divergence, or mutual information of the true distribution, as argued above.
+For $N=2$ this is $1/4$, converging to $e^{-1}$ for $N\rightarrow \infty$.  Yet, the spike can drastically lower the entropy, KL divergence, or mutual information of the true distribution, as argued above.
 
 ### 2.3 Sketch of the $\log N$ bound (KL Version)
 
@@ -89,13 +95,13 @@ At the same time, a batch of $N$ samples from $p$ is statistically very unlikely
 In fact, samples from $\tilde{q}^N$ and $q^N$ are nearly indistinguishable unless one of them lands in the spike, which happens with low probability.
 In fact, as argued above, the chance for this is greater than $1/4$.
 
-So if the estimator ever outputs a value greater than $\log N$ on a batch that looks like it came from $q$, it risks being wrong under $\tilde{q}$ with nontrivial probability ($e^{-1}$ in the limit) which is violating the confidence guarantee.
+So, if the estimator ever outputs a value greater than $\log N$ on a batch that looks like it came from $q$, it risks being wrong under $\tilde{q}$ with nontrivial probability ($e^{-1}$ in the limit) which is violating the confidence guarantee.
 
 The safest strategy for the estimator is to stay below $\log N + \text{const}$, regardless of the true KL unless it has specific structural properties. 
-And since mutual information is itself a KL divergence, this same limitation applies directly to MI lower bounds as well.
+Since mutual information is itself a KL divergence, this same limitation applies directly to MI lower bounds as well.
 
 ---
-## 7  Lessons
+## 3  Lessons
 
 * Without strong assumptions (finite alphabet, parametric family,
   smoothness), **large lower bounds are impossible**.
@@ -124,7 +130,7 @@ In *Proceedings of the 36th International Conference on Machine Learning* (ICML)
 
 ---
 
-## 8
+## 4 Code and Visualization
 ![Figure](/images/MISCapture2.JPG)
 <details>
 <summary>Show Python code</summary>
