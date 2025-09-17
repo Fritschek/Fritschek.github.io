@@ -48,8 +48,8 @@ As the entropy upper bounds the MI, it can be seen how this problem directly tra
 
 ### 2.2 The continues case
 
-**Note.** For continuous variables, the uniform density on a finite interval \([a,b]\) still maximises differential entropy,  
-but \(h(X)\) itself can be **negative**.  Consequently, the shortcut \(I(X;Y)\le h(X)\) that worked in the 
+**Note.** For continuous variables, the uniform density on a finite interval $[a,b]$ still maximises differential entropy,  
+but $h(X)$ itself can be **negative**.  Consequently, the shortcut $I(X;Y)\le h(X)$ that worked in the 
 discrete case no longer provides a useful upper bound on mutual information and the proof must instead rely on the KL–divergence
 formulation.
 
@@ -91,9 +91,9 @@ $$
 D_{\mathrm{KL}}(p \Vert \tilde{q}) \le \log N.
 $$
 
-At the same time, a batch of $N$ samples from $p$ is statistically very unlikely to detect the difference between $q$ and $\tilde{q}$, since the mass added to $p$ is only $1/N$.
-In fact, samples from $\tilde{q}^N$ and $q^N$ are nearly indistinguishable unless one of them lands in the spike, which happens with low probability.
-In fact, as argued above, the chance for this is greater than $1/4$.
+At the same time, a batch of $N$ samples from $q$ is statistically very unlikely to detect the difference between $q$ and $\tilde{q}$, since the mass added to $q$ from $p$ is only $1/N$.
+In fact, samples from $\tilde{q}^N$ and $q^N$ are nearly indistinguishable unless one of them lands in the spike, which happens with low probability
+(as argued above, the chance for this is greater than $1/4$).
 
 So, if the estimator ever outputs a value greater than $\log N$ on a batch that looks like it came from $q$, it risks being wrong under $\tilde{q}$ with nontrivial probability ($e^{-1}$ in the limit) which is violating the confidence guarantee.
 
