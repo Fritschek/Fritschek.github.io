@@ -1,0 +1,219 @@
+journal:
+  - authors: "A. Roessler, M. M. Lopez, R. Diab, R. L. G. Cavalcante, A. Abdi, C. Arendt, C. Bockelmann, A. Danaee, M. Danger, A. Dekorsy, A. El Husseini, G. Fettweis, J. Fink, **R. Fritschek**, et al."
+    title: "AI/ML-Driven 6G Network Solutions with Energy Efficiency Considerations"
+    venue: "IEEE Access"
+    details: "vol. 14, pp. 39617-39645, 2026"
+    links:
+      - label: "doi"
+        url: "https://doi.org/10.1109/ACCESS.2026.3666644"
+
+  - authors: "B. Banerjee, B. Agarwal, A. Ahmad, C. Bockelmann, R. L. G. Cavalcante, A. Danaee, A. Dekorsy, G. Fettweis, J. Fink, N. Franchi, **R. Fritschek**, et al."
+    title: "6G PHY: Insights From 6G-ANNA Research Initiative"
+    venue: "IEEE Open Journal of the Communications Society"
+    details: "vol. 7, pp. 1210-1234, 2026"
+    links:
+      - label: "doi"
+        url: "https://doi.org/10.1109/OJCOMS.2026.3658132"
+
+  - authors: "**R. Fritschek** and G. Wunder"
+    title: "On the Gaussian Multiple Access Wiretap Channel and the Gaussian Wiretap Channel with a Helper: Achievable Schemes and Upper Bounds"
+    venue: "IEEE Transactions on Information Forensics and Security"
+    details: "vol. 14, no. 5, pp. 1224-1239, May 2019"
+    links:
+      - label: "preprint"
+        url: "https://arxiv.org/pdf/1712.04274.pdf"
+
+conference:
+  - authors: "**R. Fritschek** and R. F. Schaefer"
+    title: "MinGRU-Based Encoder for Turbo Autoencoder Frameworks"
+    venue: "Proc. IEEE International Conference on Machine Learning for Communication and Networking (ICMLCN)"
+    details: "Barcelona, Spain, 2025"
+    links:
+      - label: "doi"
+        url: "https://doi.org/10.1109/ICMLCN64995.2025.11140162"
+      - label: "preprint"
+        url: "https://arxiv.org/abs/2503.08451"
+
+  - authors: "M. Kim, **R. Fritschek**, and R. F. Schaefer"
+    title: "Robust Generation of Channel Distributions with Diffusion Models"
+    venue: "Proc. IEEE International Conference on Communications (ICC)"
+    details: "Denver, USA, 2024, pp. 330-335"
+    links:
+      - label: "doi"
+        url: "https://doi.org/10.1109/ICC51166.2024.10622251"
+
+  - authors: "O. Günlü, **R. Fritschek**, and R. F. Schaefer"
+    title: "Concatenated Classic and Neural (CCN) Codes: ConcatenatedAE"
+    venue: "Proc. IEEE Wireless Communications and Networking Conference (WCNC)"
+    details: "Glasgow, UK, 2023, pp. 1-6"
+    links:
+      - label: "doi"
+        url: "https://doi.org/10.1109/WCNC55385.2023.10118867"
+      - label: "preprint"
+        url: "https://arxiv.org/abs/2209.01701"
+
+  - authors: "M. Kim, **R. Fritschek**, and R. F. Schaefer"
+    title: "Learning End-to-End Channel Coding with Diffusion Models"
+    venue: "Proc. 26th International ITG Workshop on Smart Antennas and 13th Conference on Systems, Communications, and Coding (WSA & SCC)"
+    details: "Braunschweig, Germany, 2023, pp. 208-213"
+    links:
+      - label: "preprint"
+        url: "https://arxiv.org/abs/2302.01714"
+
+  - authors: "**R. Fritschek**, R. F. Schaefer, and G. Wunder"
+    title: "Reinforce Security: A Model-Free Approach towards Secure Wiretap Coding"
+    venue: "Proc. IEEE International Conference on Communications (ICC)"
+    details: "Virtual, 2021, pp. 1-6"
+    links:
+      - label: "doi"
+        url: "https://doi.org/10.1109/ICC42927.2021.9500799"
+      - label: "preprint"
+        url: "https://arxiv.org/abs/2106.00343"
+
+  - authors: "G. Wunder, B. Groß, **R. Fritschek**, and R. F. Schaefer"
+    title: "A Reverse Jensen Inequality Result with Application to Mutual Information Estimation"
+    venue: "Proc. IEEE Information Theory Workshop (ITW)"
+    details: "Virtual, 2021, pp. 1-6"
+    links:
+      - label: "doi"
+        url: "https://doi.org/10.1109/ITW48936.2021.9611449"
+      - label: "preprint"
+        url: "https://arxiv.org/abs/2111.06676"
+
+  - authors: "**R. Fritschek**, R. F. Schaefer, and G. Wunder"
+    title: "Deep learning based wiretap coding via mutual information estimation"
+    venue: "Proc. ACM Workshop on Wireless Security and Machine Learning (WiseML)"
+    details: "Linz, Austria, 2020, pp. 74-79"
+    links:
+      - label: "doi"
+        url: "https://doi.org/10.1145/3395352.3402654"
+
+  - authors: "**R. Fritschek**, R. F. Schaefer, and G. Wunder"
+    title: "Neural Mutual Information Estimation for Channel Coding: State-of-The-Art Estimators, Analysis, and Performance Comparison"
+    venue: "Proc. IEEE International Workshop on Signal Processing Advances in Wireless Communications (SPAWC)"
+    details: "Atlanta, USA, 2020, pp. 1-5"
+    links:
+      - label: "doi"
+        url: "https://doi.org/10.1109/SPAWC48557.2020.9154239"
+      - label: "preprint"
+        url: "https://arxiv.org/abs/2006.16015"
+
+  - authors: "**R. Fritschek**, R. F. Schaefer, and G. Wunder"
+    title: "Deep Learning for Channel Coding via Neural Mutual Information Estimation"
+    venue: "Proc. IEEE International Workshop on Signal Processing Advances in Wireless Communications (SPAWC)"
+    details: "Cannes, France, 2019, pp. 1-5"
+    links:
+      - label: "doi"
+        url: "https://doi.org/10.1109/SPAWC.2019.8815464"
+      - label: "preprint"
+        url: "https://arxiv.org/pdf/1903.02865.pdf"
+      - label: "code"
+        url: "https://github.com/Fritschek/Wireless_encoding_with_MI_estimation"
+
+  - authors: "**R. Fritschek**, R. F. Schaefer, and G. Wunder"
+    title: "Deep Learning for the Gaussian Wiretap Channel"
+    venue: "Proc. IEEE International Conference on Communications (ICC)"
+    details: "Shanghai, China, 2019, pp. 1-6"
+    links:
+      - label: "preprint"
+        url: "https://arxiv.org/pdf/1810.12655.pdf"
+      - label: "code"
+        url: "https://github.com/Fritschek/NN_GWTC"
+
+  - authors: "G. Wunder, I. Roth, **R. Fritschek**, B. Groß, and J. Eisert"
+    title: "Secure massive IoT using hierarchical fast blind deconvolution"
+    venue: "Proc. IEEE Wireless Communications and Networking Conference Workshops (WCNCW)"
+    details: "2018, pp. 119-124"
+    links:
+      - label: "preprint"
+        url: "https://arxiv.org/pdf/1801.09628.pdf"
+
+  - authors: "**R. Fritschek** and G. Wunder"
+    title: "On Full-Duplex Secure Key Generation with Deterministic Models"
+    venue: "Proc. IEEE Conference on Communications and Network Security (CNS)"
+    details: "Las Vegas, NV, USA, 2017, pp. 550-554, invited"
+
+  - authors: "G. Wunder, I. Roth, **R. Fritschek**, and J. Eisert"
+    title: "HiHTP: A Custom-Tailored Hierarchical Sparse Detector for Massive MTC"
+    venue: "Proc. Asilomar Conference on Signals, Systems, and Computers"
+    details: "2017, pp. 1929-1934"
+    links:
+      - label: "preprint"
+        url: "https://arxiv.org/pdf/1806.02754.pdf"
+
+  - authors: "**R. Fritschek** and G. Wunder"
+    title: "On-The-Fly Secure Key Generation with Deterministic Models"
+    venue: "Proc. IEEE International Conference on Communications (ICC)"
+    details: "Paris, France, 2017, pp. 1-6"
+    links:
+      - label: "preprint"
+        url: "https://arxiv.org/pdf/1705.01325.pdf"
+
+  - authors: "G. Wunder, **R. Fritschek**, and R. Khan"
+    title: "RECiP: Wireless channel reciprocity restoration method for varying transmission power"
+    venue: "Proc. IEEE International Symposium on Personal, Indoor, and Mobile Radio Communications (PIMRC)"
+    details: "Valencia, Spain, 2016, pp. 1-5"
+
+  - authors: "**R. Fritschek** and G. Wunder"
+    title: "Towards a Constant-Gap Sum-Capacity Result for the Gaussian Wiretap Channel with a Helper"
+    venue: "Proc. IEEE International Symposium on Information Theory (ISIT)"
+    details: "Barcelona, Spain, 2016, pp. 2978-2982"
+    links:
+      - label: "preprint"
+        url: "https://arxiv.org/pdf/1601.06437.pdf"
+
+  - authors: "**R. Fritschek** and G. Wunder"
+    title: "Constant-Gap Sum-Capacity Approximation of the Deterministic Interfering Multiple Access Channel"
+    venue: "Proc. IEEE International Symposium on Information Theory (ISIT)"
+    details: "Hong Kong, China, 2015, pp. 2643-2647"
+
+  - authors: "**R. Fritschek** and G. Wunder"
+    title: "Deterministic IMAC revisited: Constant-Gap Capacity in the weak interference case"
+    venue: "Proc. IEEE International Conference on Communications (ICC)"
+    details: "London, UK, 2015, pp. 4211-4216"
+
+  - authors: "**R. Fritschek** and G. Wunder"
+    title: "Enabling the multi-user generalized degrees of freedom in the Gaussian cellular channel"
+    venue: "Proc. IEEE Information Theory Workshop (ITW)"
+    details: "Hobart, Australia, 2014, pp. 107-111"
+    links:
+      - label: "preprint"
+        url: "https://arxiv.org/pdf/1408.5072.pdf"
+
+  - authors: "**R. Fritschek** and G. Wunder"
+    title: "Upper bounds and duality relations of the linear deterministic sum capacity for cellular systems"
+    venue: "Proc. IEEE International Conference on Communications (ICC)"
+    details: "Sydney, Australia, 2014, pp. 1884-1889"
+    links:
+      - label: "preprint"
+        url: "https://arxiv.org/pdf/1408.5057.pdf"
+
+  - authors: "G. Zhang, **R. Fritschek**, F. Becker, S. Prys, and M. Urban"
+    title: "Shielding calculations of a CASTOR with MCNP5"
+    venue: "Annual Meeting on Nuclear Technology"
+    details: "2010, p. 3"
+
+book_chapters:
+  - authors: "**R. Fritschek** and G. Wunder"
+    title: "Enabling the Multi-User Generalized Degrees of Freedom in Cellular Interference Networks with Multi-User Coding"
+    venue: "Communications in Interference-Limited Networks"
+    details: "ser. Signals and Communication Technology, Springer, 2016, pp. 53-73"
+
+preprints:
+  - authors: "**R. Fritschek** and G. Wunder"
+    title: "On Multiuser Gain and the Constant-Gap Sum Capacity of the Gaussian Interfering Multiple Access Channel"
+    links:
+      - label: "arXiv:1705.04514"
+        url: "https://arxiv.org/abs/1705.04514"
+
+  - authors: "G. Wunder, I. Roth, **R. Fritschek**, and J. Eisert"
+    title: "Performance of Hierarchical Sparse Detectors for Massive MTC"
+    links:
+      - label: "arXiv:1806.02754"
+        url: "https://arxiv.org/abs/1806.02754"
+
+  - authors: "**R. Fritschek** and G. Wunder"
+    title: "On the Deterministic Sum-Capacity of the Multiple Access Wiretap Channel"
+    links:
+      - label: "arXiv:1701.07380"
+        url: "https://arxiv.org/abs/1701.07380"

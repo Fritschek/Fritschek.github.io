@@ -1,0 +1,14 @@
+- title: "MinDiffusion"
+  url: "https://github.com/Fritschek/MinDiffusion"
+  description: "Diffusion-model material for end-to-end channel coding and the ICMLCN tutorial."
+  links:
+    - label: "slides"
+      url: "https://github.com/Fritschek/MinDiffusion/blob/main/Slides.pdf"
+
+- title: "Wireless Encoding with MI Estimation"
+  url: "https://github.com/Fritschek/Wireless_encoding_with_MI_estimation"
+  description: "Code for neural mutual information estimation applied to channel coding."
+
+- title: "Neural Gaussian Wiretap Channel"
+  url: "https://github.com/Fritschek/NN_GWTC"
+  description: "Code for deep learning-based coding over the Gaussian wiretap channel."

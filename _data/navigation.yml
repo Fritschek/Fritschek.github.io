@@ -6,12 +6,9 @@ main:
   - title: "Publications"
     url: /publications/
 
-  - title: "Professional Activity"
+  - title: "Professional Activities"
     url: /activity/    
 
-  #- title: "Teaching"
-  #  url: /teaching/    
-        
   - title: "Blog Posts"
     url: /blog/
     

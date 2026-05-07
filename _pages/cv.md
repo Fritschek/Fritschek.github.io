@@ -8,7 +8,8 @@ redirect_from:
 ---
 
 {% include base_path %}
-[PDF of my CV](http://fritschek.github.io/files/CV2.pdf)
+
+[PDF of my CV](https://fritschek.github.io/files/CV2.pdf)
 
 ## Education
 
@@ -16,45 +17,45 @@ redirect_from:
 * **M.Sc.** in Electrical Engineering, Technische Universität Berlin, 2012
 * **B.Sc.** in Electrical Engineering, Hochschule Furtwangen, 2010
 
-## Work experience
+## Work Experience
+
 * _Postdoctoral Researcher_ at Technische Universität Dresden, January 2023 - present
-  * Working on the interplay between information theory, machine learning and statistics
+  * Working on the interplay between information theory, machine learning, and statistics
 
 * _Postdoctoral Researcher_ at Universität Siegen, February 2022 - December 2022
-  * Working on the interplay between classical codes and AI
+  * Worked on the interplay between classical codes and AI
 
-* _Postdoctoral Researcher_ at Freie Universität Berlin, Oktober 2019 - January 2022
+* _Postdoctoral Researcher_ at Freie Universität Berlin, October 2019 - January 2022
   * Principal investigator of the DFG-funded project "Machine Learning for Physical Layer Security"
 
 * _Postdoctoral Researcher_ at Technische Universität Berlin, May 2019 - September 2019
-  * Working on deep learning based channel coding technqiues
+  * Worked on deep learning-based channel coding techniques
 
 * _Postdoctoral Researcher_ at Freie Universität Berlin, July 2018 - April 2019
-  * Working on deep learning based channel coding technqiues for security
+  * Worked on deep learning-based channel coding techniques for security
 
 * _Ph.D. Student_ at Freie Universität Berlin, October 2015 - June 2018
-  * Research Topic: Capacity approximations for physical layer security
+  * Research topic: capacity approximations for physical layer security
 
 * _Ph.D. Student_ at Technische Universität Berlin, September 2012 - September 2015
-  * Research Topic: Capacity approximations for multi-user networks
-  
-* _Undergraduate Researcher_ at Karlsruher Institut für TechnologieSeptember 2009 - December 2009
-  * Simulation of radiation inside the interim storage facility for nuclear waste
+  * Research topic: capacity approximations for multi-user networks
 
+* _Undergraduate Researcher_ at Karlsruher Institut für Technologie, September 2009 - December 2009
+  * Simulated radiation inside the interim storage facility for nuclear waste
 
 ## Skills
 
-* Languages: 
+* Languages:
   * German (native)
   * English (proficient)
 * Technical:
-  * Information Theory
-  * Physical Layer Security
-  * Machine/Deep Learning
-* Programming (in descending order of proficiency): 
-  * Latex
-  * Python (PyTorch, TensorFlow, Keras, scikit-learn, Pandas)
-  * Matlab
+  * Information theory
+  * Physical layer security
+  * Machine learning and deep learning
+  * High-dimensional statistics
+* Programming:
+  * LaTeX
+  * Python (PyTorch, TensorFlow, Keras, scikit-learn, pandas)
+  * MATLAB
   * C/C++
   * MCNP5
- 
