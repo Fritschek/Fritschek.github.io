@@ -17,6 +17,7 @@ journal:
 
   - authors: "**R. Fritschek** and G. Wunder"
     title: "On the Gaussian Multiple Access Wiretap Channel and the Gaussian Wiretap Channel with a Helper: Achievable Schemes and Upper Bounds"
+    id: "gaussian-mac-wiretap-helper"
     venue: "IEEE Transactions on Information Forensics and Security"
     details: "vol. 14, no. 5, pp. 1224-1239, May 2019"
     links:
@@ -26,6 +27,7 @@ journal:
 conference:
   - authors: "**R. Fritschek** and R. F. Schaefer"
     title: "MinGRU-Based Encoder for Turbo Autoencoder Frameworks"
+    id: "mingru-turbo-autoencoder"
     venue: "Proc. IEEE International Conference on Machine Learning for Communication and Networking (ICMLCN)"
     details: "Barcelona, Spain, 2025"
     links:
@@ -36,6 +38,7 @@ conference:
 
   - authors: "M. Kim, **R. Fritschek**, and R. F. Schaefer"
     title: "Robust Generation of Channel Distributions with Diffusion Models"
+    id: "diffusion-channel-distributions"
     venue: "Proc. IEEE International Conference on Communications (ICC)"
     details: "Denver, USA, 2024, pp. 330-335"
     links:
@@ -54,6 +57,7 @@ conference:
 
   - authors: "M. Kim, **R. Fritschek**, and R. F. Schaefer"
     title: "Learning End-to-End Channel Coding with Diffusion Models"
+    id: "diffusion-channel-coding"
     venue: "Proc. 26th International ITG Workshop on Smart Antennas and 13th Conference on Systems, Communications, and Coding (WSA & SCC)"
     details: "Braunschweig, Germany, 2023, pp. 208-213"
     links:
@@ -62,6 +66,7 @@ conference:
 
   - authors: "**R. Fritschek**, R. F. Schaefer, and G. Wunder"
     title: "Reinforce Security: A Model-Free Approach towards Secure Wiretap Coding"
+    id: "reinforce-security"
     venue: "Proc. IEEE International Conference on Communications (ICC)"
     details: "Virtual, 2021, pp. 1-6"
     links:
@@ -72,6 +77,7 @@ conference:
 
   - authors: "G. Wunder, B. Groß, **R. Fritschek**, and R. F. Schaefer"
     title: "A Reverse Jensen Inequality Result with Application to Mutual Information Estimation"
+    id: "reverse-jensen-mi"
     venue: "Proc. IEEE Information Theory Workshop (ITW)"
     details: "Virtual, 2021, pp. 1-6"
     links:
@@ -82,6 +88,7 @@ conference:
 
   - authors: "**R. Fritschek**, R. F. Schaefer, and G. Wunder"
     title: "Deep learning based wiretap coding via mutual information estimation"
+    id: "wiretap-coding-mi"
     venue: "Proc. ACM Workshop on Wireless Security and Machine Learning (WiseML)"
     details: "Linz, Austria, 2020, pp. 74-79"
     links:
@@ -90,6 +97,7 @@ conference:
 
   - authors: "**R. Fritschek**, R. F. Schaefer, and G. Wunder"
     title: "Neural Mutual Information Estimation for Channel Coding: State-of-The-Art Estimators, Analysis, and Performance Comparison"
+    id: "neural-mi-estimation"
     venue: "Proc. IEEE International Workshop on Signal Processing Advances in Wireless Communications (SPAWC)"
     details: "Atlanta, USA, 2020, pp. 1-5"
     links:
@@ -100,6 +108,7 @@ conference:
 
   - authors: "**R. Fritschek**, R. F. Schaefer, and G. Wunder"
     title: "Deep Learning for Channel Coding via Neural Mutual Information Estimation"
+    id: "channel-coding-mi-estimation"
     venue: "Proc. IEEE International Workshop on Signal Processing Advances in Wireless Communications (SPAWC)"
     details: "Cannes, France, 2019, pp. 1-5"
     links:
@@ -112,6 +121,7 @@ conference:
 
   - authors: "**R. Fritschek**, R. F. Schaefer, and G. Wunder"
     title: "Deep Learning for the Gaussian Wiretap Channel"
+    id: "gaussian-wiretap-channel"
     venue: "Proc. IEEE International Conference on Communications (ICC)"
     details: "Shanghai, China, 2019, pp. 1-6"
     links:
@@ -143,6 +153,7 @@ conference:
 
   - authors: "**R. Fritschek** and G. Wunder"
     title: "On-The-Fly Secure Key Generation with Deterministic Models"
+    id: "on-the-fly-key-generation"
     venue: "Proc. IEEE International Conference on Communications (ICC)"
     details: "Paris, France, 2017, pp. 1-6"
     links:
@@ -156,6 +167,7 @@ conference:
 
   - authors: "**R. Fritschek** and G. Wunder"
     title: "Towards a Constant-Gap Sum-Capacity Result for the Gaussian Wiretap Channel with a Helper"
+    id: "wiretap-helper-constant-gap"
     venue: "Proc. IEEE International Symposium on Information Theory (ISIT)"
     details: "Barcelona, Spain, 2016, pp. 2978-2982"
     links:
@@ -182,6 +194,7 @@ conference:
 
   - authors: "**R. Fritschek** and G. Wunder"
     title: "Upper bounds and duality relations of the linear deterministic sum capacity for cellular systems"
+    id: "cellular-deterministic-duality"
     venue: "Proc. IEEE International Conference on Communications (ICC)"
     details: "Sydney, Australia, 2014, pp. 1884-1889"
     links:
@@ -202,6 +215,7 @@ book_chapters:
 preprints:
   - authors: "**R. Fritschek** and G. Wunder"
     title: "On Multiuser Gain and the Constant-Gap Sum Capacity of the Gaussian Interfering Multiple Access Channel"
+    id: "gaussian-imac-constant-gap"
     links:
       - label: "arXiv:1705.04514"
         url: "https://arxiv.org/abs/1705.04514"

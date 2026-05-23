@@ -148,6 +148,8 @@ exclude:
   - package.json
   - CHANGELOG.md
   - CONTRIBUTING.md
+  - drifting_generative_models_article_expanded.html
+  - github_research_pivot_papers_narrative.md
   - talkmap
   - talkmap.py
   - talkmap.ipynb

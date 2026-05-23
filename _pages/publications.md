@@ -12,27 +12,27 @@ An up-to-date list of my articles can be found on <u><a href="https://scholar.go
 ## Journal Articles
 
 {% for pub in site.data.publications.journal %}
-{{ forloop.index }}. {{ pub.authors }}, "{{ pub.title }}"{% if pub.venue %}, in *{{ pub.venue }}*{% endif %}{% if pub.details %}, {{ pub.details }}{% endif %}.{% if pub.links %}{% for link in pub.links %} [[{{ link.label }}]({{ link.url }})]{% endfor %}{% endif %}
+{% if pub.id %}<span id="{{ pub.id }}"></span>{% endif %}{{ forloop.index }}. {{ pub.authors }}, "{{ pub.title }}"{% if pub.venue %}, in *{{ pub.venue }}*{% endif %}{% if pub.details %}, {{ pub.details }}{% endif %}.{% if pub.links %}{% for link in pub.links %} [[{{ link.label }}]({{ link.url }})]{% endfor %}{% endif %}
 
 {% endfor %}
 
 ## Conference Articles
 
 {% for pub in site.data.publications.conference %}
-{{ forloop.index }}. {{ pub.authors }}, "{{ pub.title }}"{% if pub.venue %}, in *{{ pub.venue }}*{% endif %}{% if pub.details %}, {{ pub.details }}{% endif %}.{% if pub.links %}{% for link in pub.links %} [[{{ link.label }}]({{ link.url }})]{% endfor %}{% endif %}
+{% if pub.id %}<span id="{{ pub.id }}"></span>{% endif %}{{ forloop.index }}. {{ pub.authors }}, "{{ pub.title }}"{% if pub.venue %}, in *{{ pub.venue }}*{% endif %}{% if pub.details %}, {{ pub.details }}{% endif %}.{% if pub.links %}{% for link in pub.links %} [[{{ link.label }}]({{ link.url }})]{% endfor %}{% endif %}
 
 {% endfor %}
 
 ## Book Chapters
 
 {% for pub in site.data.publications.book_chapters %}
-{{ forloop.index }}. {{ pub.authors }}, "{{ pub.title }}"{% if pub.venue %}, in *{{ pub.venue }}*{% endif %}{% if pub.details %}, {{ pub.details }}{% endif %}.{% if pub.links %}{% for link in pub.links %} [[{{ link.label }}]({{ link.url }})]{% endfor %}{% endif %}
+{% if pub.id %}<span id="{{ pub.id }}"></span>{% endif %}{{ forloop.index }}. {{ pub.authors }}, "{{ pub.title }}"{% if pub.venue %}, in *{{ pub.venue }}*{% endif %}{% if pub.details %}, {{ pub.details }}{% endif %}.{% if pub.links %}{% for link in pub.links %} [[{{ link.label }}]({{ link.url }})]{% endfor %}{% endif %}
 
 {% endfor %}
 
 ## Preprints
 
 {% for pub in site.data.publications.preprints %}
-{{ forloop.index }}. {{ pub.authors }}, "{{ pub.title }}"{% if pub.venue %}, in *{{ pub.venue }}*{% endif %}{% if pub.details %}, {{ pub.details }}{% endif %}.{% if pub.links %}{% for link in pub.links %} [[{{ link.label }}]({{ link.url }})]{% endfor %}{% endif %}
+{% if pub.id %}<span id="{{ pub.id }}"></span>{% endif %}{{ forloop.index }}. {{ pub.authors }}, "{{ pub.title }}"{% if pub.venue %}, in *{{ pub.venue }}*{% endif %}{% if pub.details %}, {{ pub.details }}{% endif %}.{% if pub.links %}{% for link in pub.links %} [[{{ link.label }}]({{ link.url }})]{% endfor %}{% endif %}
 
 {% endfor %}
