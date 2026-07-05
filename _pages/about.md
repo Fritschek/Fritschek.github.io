@@ -22,7 +22,7 @@ I did my Dr.-Ing. (PhD) at Technische Universität Berlin, advised by [Gerhard W
 
 [Email](mailto:rick.fritschek@tu-dresden.de) / [Google Scholar](https://scholar.google.com/citations?user=EfwPnJQAAAAJ&hl=en) / [GitHub](https://github.com/Fritschek) / [LinkedIn](https://de.linkedin.com/in/rickfritschek) / [ORCID](https://orcid.org/0000-0002-2485-5500)
 
-## Research Narrative
+## Research
 
 The common question behind my work is how information is structured, approximated, hidden, estimated, transmitted, and recovered under constraints. In my earlier work, these constraints were physical, algebraic, or communication-theoretic: interference, secrecy requirements, unknown channels, coding structure, and limited computational resources. This led me to work on channel coding [[3]](/publications/#channel-coding-mi-estimation), wiretap coding [[6]](/publications/#wiretap-coding-mi), interference networks [[1]](/publications/#cellular-deterministic-duality), and mutual-information estimation [[7]](/publications/#neural-mi-estimation).
 
