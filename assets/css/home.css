@@ -133,3 +133,144 @@ img.home-img {
 p.align-center {
   text-align: center;
 }
+
+.research-map {
+  margin: 24px 0 28px;
+}
+
+.research-map h3 {
+  margin: 0 0 12px;
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.research-map__flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36px minmax(180px, 1.1fr) 36px minmax(0, 1fr);
+  align-items: center;
+  gap: 0;
+  margin-bottom: 12px;
+}
+
+.research-map__node,
+.research-map__core,
+.research-map__theme {
+  border: 1px solid #d8dde5;
+  border-radius: 8px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.research-map__node,
+.research-map__core {
+  min-height: 118px;
+  padding: 14px;
+}
+
+.research-map__core {
+  border-color: #8ba6c7;
+  background: #f6f9fc;
+}
+
+.research-map__connector {
+  height: 2px;
+  background: #b6c2d0;
+}
+
+.research-map__eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: #657184;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.research-map strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #1f2933;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.research-map__node span:last-child,
+.research-map__core span:last-child {
+  display: block;
+  color: #4d5968;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.research-map__themes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.research-map__theme {
+  min-height: 126px;
+  padding: 12px 13px 10px;
+  border-top-width: 4px;
+}
+
+.research-map__theme--structure {
+  border-top-color: #2f6690;
+}
+
+.research-map__theme--security {
+  border-top-color: #9c5a32;
+}
+
+.research-map__theme--estimation {
+  border-top-color: #2f7d62;
+}
+
+.research-map__theme--learned {
+  border-top-color: #6750a4;
+}
+
+.research-map__theme h4 {
+  margin: 0 0 7px;
+  color: #1f2933;
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.research-map__theme p {
+  margin: 0;
+  color: #4d5968;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.research-map__theme .research-map__refs {
+  margin-top: 8px;
+  color: #657184;
+}
+
+.research-map__refs a {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .research-map__flow,
+  .research-map__themes {
+    grid-template-columns: 1fr;
+  }
+
+  .research-map__connector {
+    width: 2px;
+    height: 20px;
+    justify-self: center;
+  }
+
+  .research-map__node,
+  .research-map__core,
+  .research-map__theme {
+    min-height: 0;
+  }
+}

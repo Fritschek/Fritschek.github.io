@@ -3,46 +3,48 @@ layout: single
 title: "From Diffusion to Drifting: Generative Modeling as Learned Distributional Transport"
 date: 2026-05-23
 tags: [generative-models, diffusion, optimal-transport, sinkhorn]
-excerpt: "A note on drifting models, Wasserstein gradient flows, and why one-step generators can be viewed as training-time distributional transport."
+excerpt: "A note on drifting models, Wasserstein gradient flows, and one-step generators as training-time distributional transport."
 ---
 
-*A short note on Deng et al.'s drifting models, the Wasserstein-gradient-flow
+*A technical note on Deng et al.'s drifting models, the Wasserstein-gradient-flow
 interpretation, and the recent W-Flow construction.*
 
 ---
 
-## 1. A pushforward viewpoint
+## 1. Pushforwards
 
-Diffusion models, flow matching, drifting models, and W-Flow can all be read as
-ways of moving probability mass from a simple reference distribution to the data
-distribution. The location of this movement distinguishes the methods.
+The same mathematical object appears across diffusion models, flow matching,
+drifting models, and W-Flow: transport from a simple reference distribution to
+the data distribution. The computational question is where this transport is
+carried out.
 
-Diffusion and score-based models learn dynamics that are still integrated at
-sampling time [[1]](#ref-sohl), [[2]](#ref-song). Flow matching learns a velocity
-field between distributions [[4]](#ref-lipman). Drifting models move the
-generator's pushforward distribution during training and then sample with one
-network evaluation [[5]](#ref-deng). W-Flow makes a related idea explicit by
-choosing a Wasserstein gradient flow, instantiated with the Sinkhorn divergence,
-and then compressing that flow into a one-step generator [[9]](#ref-han).
+Diffusion and score-based models require integration of learned reverse-time
+dynamics during sampling [[1]](#ref-sohl), [[2]](#ref-song). Flow matching uses
+velocity-field regression between distributions [[4]](#ref-lipman). Drifting
+updates the generator's pushforward distribution during training and keeps
+sampling to one network evaluation [[5]](#ref-deng). W-Flow represents the
+training-time transport as a Wasserstein gradient flow based on the Sinkhorn
+divergence [[9]](#ref-han).
 
-The common object is the pushforward distribution of the generator:
+Let $z \sim \rho_0$ denote a latent variable drawn from a simple reference
+distribution, and let $G_\theta$ denote the generator. The induced model
+distribution is
 
 $$
 \rho_\theta = (G_\theta)_\# \rho_0.
 $$
 
-Here $z$ is drawn from the reference distribution, the generator maps it into
-data space, and the displayed pushforward is the distribution of generated
-samples. Generative modeling is then the problem of changing the generator until
+This is the distribution of generated samples. Training changes the generator
+until
 
 $$
 \rho_\theta \approx \rho_{\mathrm{data}}.
 $$
 
-The pushforward view separates two questions that are often mixed together:
+Two modeling choices remain:
 
-1. Which path should the distribution follow?
-2. Should that path be followed at inference time, or absorbed during training?
+1. Which distributional path is used?
+2. Is that path evaluated at inference time or absorbed during training?
 
 ## 2. Diffusion: dynamics at inference time
 
@@ -63,10 +65,10 @@ $$
 \frac{1}{2} g(t)^2 \Delta \rho_t.
 $$
 
-If the noising process is run long enough, the data distribution is pushed
-towards a simple reference distribution. Sampling then means running the process
-backwards. With the usual reverse-time convention, the reverse SDE contains the
-score
+If the noising process is run long enough, the data distribution approaches a
+simple reference distribution. Sampling is implemented by reverse-time
+integration. With the usual reverse-time convention, the reverse SDE contains
+the score
 
 $$
 \nabla_x \log \rho_t(x),
@@ -78,22 +80,18 @@ $$
 f(t,x) - g(t)^2 \nabla_x \log \rho_t(x).
 $$
 
-The sign convention depends on whether one writes the reverse process with
-decreasing time $t$ or with a new increasing time variable. The important
-point here is simpler: the learned score field is evaluated repeatedly during
-sampling. A diffusion model combines a map from noise with a learned numerical
-procedure.
+Different reverse-time parametrizations lead to different signs in this display.
+The learned score field is evaluated repeatedly during sampling. A diffusion
+model combines a map from noise with a learned numerical procedure.
 
-The price of this construction is inference-time computation: high-quality
-sampling requires repeated network evaluations.
+This costs sampling time. High-quality samples usually require repeated network
+evaluations.
 
 ## 3. Transport viewpoints
 
-A complementary reading of diffusion-like methods starts from paths between
-probability distributions.
-
-In a Schrödinger bridge, one looks for a stochastic process whose endpoint
-marginals are fixed,
+Transport formulations start from paths between probability distributions.
+Schrödinger bridges specify a stochastic process with fixed endpoint
+marginals,
 
 $$
 X_0 \sim \rho_0, \qquad X_1 \sim \rho_{\mathrm{data}},
@@ -106,30 +104,27 @@ $$
 \quad
 \text{subject to}
 \quad
-P_0 = \rho_0,\; P_1 = \rho_{\mathrm{data}}.
+P_0 = \rho_0,\qquad P_1 = \rho_{\mathrm{data}}.
 $$
 
-This is the dynamic, entropy-regularized optimal-transport view of the problem
-[[3]](#ref-debortoli). Flow matching gives another transport formulation: learn a
-velocity field that carries samples along a prescribed probability path
-[[4]](#ref-lipman).
+This is dynamic, entropy-regularized optimal transport [[3]](#ref-debortoli).
+Flow matching fits a velocity field that carries samples along a prescribed
+probability path [[4]](#ref-lipman).
 
-These views change the language. The model becomes a mechanism for moving mass
-between distributions.
+The emphasis shifts from denoising to transport between distributions.
 
 ## 4. Wasserstein gradient flows
 
-Optimal transport gives a geometry on probability measures. In that geometry, a
-moving distribution satisfies the continuity equation
+Optimal transport gives a geometry on probability measures. A moving
+distribution in this geometry satisfies the continuity equation
 
 $$
 \partial_t \rho_t + \nabla \cdot (\rho_t v_t) = 0.
 $$
 
-This says that the density changes because particles move with velocity
-$v_t$. Now choose an energy functional $\mathcal{E}(\rho)$ that should be
-small when $\rho$ is close to $\rho_{\mathrm{data}}$. The Wasserstein
-gradient descent equation is
+It encodes conservation of mass under the velocity field $v_t$. Given an energy
+functional $\mathcal{E}(\rho)$ with small values near
+$\rho_{\mathrm{data}}$, the Wasserstein gradient descent equation is
 
 $$
 \partial_t \rho_t
@@ -149,20 +144,20 @@ v_t(x)
 \frac{\delta \mathcal{E}}{\delta \rho}(\rho_t)(x).
 $$
 
-The useful step is that a distributional discrepancy induces a direction in
-which generated samples should move.
+After the variational derivative and the spatial gradient, a distributional
+discrepancy yields a velocity field for generated samples.
 
 ## 5. Drifting models
 
-Deng et al. start from the pushforward distribution of the current generator
-[[5]](#ref-deng):
+Deng et al. describe iteration $k$ through the pushforward distribution of the
+current generator [[5]](#ref-deng):
 
 $$
 \rho_k = (G_{\theta_k})_\# \rho_0.
 $$
 
-At training step $k$, generated samples and real samples are used to estimate
-a drifting field. In a schematic population form, this looks like
+Generated samples and real samples are used to estimate a drifting field. A
+schematic population form is
 
 $$
 V(x)
@@ -172,11 +167,11 @@ V(x)
 \int K(x,y)(y-x)\,d\rho_{\mathrm{model}}(y).
 $$
 
-The first term pulls samples towards data regions. The second term subtracts the
-model's own mass and acts as a repulsive/diversity term. The displayed
-expression is a simplified population picture; the actual algorithm uses finite
-samples, kernel normalization, and implementation details that matter. It
-captures the basic fixed-point idea:
+The first term pulls updates towards data regions. The second term corrects for
+the model's own mass and adds a repulsive/diversity component. This display is
+only a population sketch. The algorithm uses finite samples, kernel
+normalization, and implementation choices that matter. At the population level,
+the field has the fixed-point condition
 
 $$
 V(\rho,\rho_{\mathrm{data}}) = 0
@@ -184,14 +179,14 @@ V(\rho,\rho_{\mathrm{data}}) = 0
 \rho = \rho_{\mathrm{data}}.
 $$
 
-One training step can then be read as
+A schematic training step is
 
 $$
 x = G_{\theta_k}(z), \qquad
 x^+ = x + \eta V(x),
 $$
 
-followed by a regression step that trains the generator to produce $x^+$:
+followed by regression onto the drifted target $x^+$:
 
 $$
 \theta_{k+1}
@@ -201,26 +196,26 @@ $$
 \left\|G_\theta(z) - x^+\right\|^2.
 $$
 
-So the iterative motion happens while training the generator. After training,
-sampling is just
+The iterative motion occurs while training the generator. After training,
+sampling reduces to
 
 $$
 z \sim \rho_0, \qquad x = G_\theta(z).
 $$
 
-In drifting, the distributional motion occurs during training and is amortized
-into the generator parameters.
+Drifting moves the distribution during training and amortizes this motion into
+the generator parameters.
 
-Gretton et al. make an important distinction here [[6]](#ref-gretton). An
-idealized version of drifting can be interpreted through Wasserstein gradient
-flows. The implemented algorithm of Deng et al. resembles such a fixed-point
-procedure, with separate properties from the corresponding
-Sinkhorn-gradient-flow construction.
+Gretton et al. separate the idealized Wasserstein-gradient-flow interpretation
+from the implemented drifting algorithm [[6]](#ref-gretton). The implemented
+method resembles a fixed-point procedure, and its convergence properties need
+not match those of the corresponding Sinkhorn-gradient-flow construction.
 
 ## 6. W-Flow and the Sinkhorn energy
 
-W-Flow makes the energy functional explicit [[9]](#ref-han). The starting point is
-the squared Wasserstein distance
+Han et al. make the gradient-flow construction concrete by using the Sinkhorn
+divergence to the data distribution as the driving energy [[9]](#ref-han).
+Their derivation begins with the squared Wasserstein distance
 
 $$
 W_2^2(\rho,\nu)
@@ -242,9 +237,8 @@ $$
 \varepsilon\,\mathrm{KL}(\pi \| \rho \otimes \nu).
 $$
 
-This regularization leads to Sinkhorn iterations. It also introduces an
-entropic bias, which the Sinkhorn divergence removes by subtracting self-costs
-[[8]](#ref-feydy):
+Entropic regularization leads to Sinkhorn iterations and introduces a bias. The
+Sinkhorn divergence removes this bias by subtracting self-costs [[8]](#ref-feydy):
 
 $$
 S_\varepsilon(\rho,\nu)
@@ -256,13 +250,13 @@ S_\varepsilon(\rho,\nu)
 \frac{1}{2}\mathrm{OT}_\varepsilon(\nu,\nu).
 $$
 
-W-Flow chooses
+With the Sinkhorn divergence, the energy is
 
 $$
-\mathcal{E}(\rho) = S_\varepsilon(\rho,\rho_{\mathrm{data}})
+\mathcal{E}(\rho) = S_\varepsilon(\rho,\rho_{\mathrm{data}}).
 $$
 
-and follows the Wasserstein gradient flow
+The corresponding Wasserstein gradient flow reads
 
 $$
 \partial_t \rho_t
@@ -275,7 +269,7 @@ $$
 \right).
 $$
 
-The corresponding velocity is
+The induced particle velocity is
 
 $$
 v_t(x)
@@ -285,16 +279,16 @@ v_t(x)
 \frac{\delta S_\varepsilon(\rho_t,\rho_{\mathrm{data}})}{\delta \rho}(x).
 $$
 
-The procedure has two levels:
+The algorithm has two levels:
 
-1. Define a distributional path from the reference distribution to the data
-   distribution using this Wasserstein gradient flow.
-2. Train a static generator to approximate the endpoint of that path.
+1. A distributional path from the reference distribution to the data
+   distribution is defined by this Wasserstein gradient flow.
+2. A static generator is fitted to approximate the endpoint of that path.
 
-W-Flow is related to drifting through training-time distributional transport.
-Its defining features are a fixed energy, an optimal-transport interpretation
-of the induced velocity, and an analysis of the finite-sample dynamics against
-the continuous-time distributional dynamics [[9]](#ref-han).
+The shared feature with drifting is training-time distributional transport.
+W-Flow adds a fixed energy, an optimal-transport interpretation of the induced
+velocity, and finite-sample analysis against the continuous-time distributional
+dynamics [[9]](#ref-han).
 
 ## 7. Relation to nearby model classes
 
@@ -307,30 +301,28 @@ the continuous-time distributional dynamics [[9]](#ref-han).
 | Drifting [[5]](#ref-deng) | Training-time pushforward evolution | Drifting field / fixed point | One step |
 | W-Flow [[9]](#ref-han) | Wasserstein gradient flow | Sinkhorn-divergence energy descent | One step |
 
-The coarse table keeps one distinction visible.
-Diffusion and flow matching typically keep a learned dynamics at sampling time.
-GANs, drifting models, and W-Flow aim for one-step generation. Drifting and
-W-Flow are worth looking at because they keep a distributional-transport
-interpretation and still end with a static generator.
+The table separates methods by where the learned dynamics are evaluated.
+Diffusion and flow matching typically retain learned dynamics at sampling time.
+GANs, drifting models, and W-Flow use one-step generation. Drifting and W-Flow
+retain a distributional-transport interpretation and end with a static
+generator.
 
 ## 8. Compact derivation
 
-The derivation can be summarized as follows.
-
-First, a generator defines a distribution:
+A generator defines a distribution:
 
 $$
 \rho_\theta = (G_\theta)_\# \rho_0.
 $$
 
-Second, choose an energy that compares the generated distribution with the data
+An energy compares the generated distribution with the data
 distribution:
 
 $$
 \mathcal{E}(\rho) = D(\rho,\rho_{\mathrm{data}}).
 $$
 
-For W-Flow, this is
+For W-Flow the discrepancy is the Sinkhorn divergence,
 
 $$
 D(\rho,\rho_{\mathrm{data}})
@@ -338,7 +330,7 @@ D(\rho,\rho_{\mathrm{data}})
 S_\varepsilon(\rho,\rho_{\mathrm{data}}).
 $$
 
-Third, move the distribution by Wasserstein steepest descent:
+Wasserstein steepest descent defines the distributional evolution:
 
 $$
 \partial_t \rho_t
@@ -349,7 +341,7 @@ $$
 \right).
 $$
 
-Equivalently, move particles by
+Equivalently, the particle dynamics satisfy
 
 $$
 \frac{dX_t}{dt}
@@ -362,7 +354,7 @@ v_t
 \nabla \frac{\delta \mathcal{E}}{\delta \rho}.
 $$
 
-Finally, train the generator to absorb this motion:
+The generator update then absorbs this motion:
 
 $$
 G_{\theta_{k+1}}(z)
@@ -380,15 +372,14 @@ $$
 
 ## 9. Takeaway
 
-Beyond sampling speed, one-step generation can be connected to a controlled
-evolution of probability measures.
+One-step generation is relevant both computationally and mathematically. The
+mathematical point is its connection to a controlled evolution of probability
+measures.
 
-This gives a different way to think about the old tension between GAN-like
-generators and diffusion-like dynamics. A static generator is fast and requires
-a good training signal over distributions. Diffusion gives a strong
-distributional signal at the price of repeated inference-time evaluations.
-Drifting and W-Flow keep the distributional signal and move the computation into
-training.
+GAN-like generators are fast, but their training signal is less directly tied
+to explicit distributional dynamics. Diffusion models provide such a signal
+through repeated inference-time evaluations. Drifting and W-Flow retain the
+distributional signal and shift the computation into training.
 
 The main open questions are about the geometry and the finite-sample estimates:
 Which energy gives the right motion? How stable is the induced velocity when it
@@ -396,9 +387,8 @@ is estimated from batches? How expressive must $G_\theta$ be to absorb the
 flow? And when does the fixed point of the training dynamics actually coincide
 with the data distribution?
 
-In short: modern one-step generative modeling is starting to look like
-amortized distributional transport. Learn the flow during training, then store
-the result in a single generator evaluation.
+The result is an amortized form of distributional transport. The flow is learned
+during training and represented by a single generator evaluation at inference.
 
 ## References
 
