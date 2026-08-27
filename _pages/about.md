@@ -98,6 +98,7 @@ This section is intentionally withheld until the relevant paper is public.
 
 ## Recent News
 
+* August 2026. A GLOBECOM version of "Condition-Wise Sinkhorn Drifting for One-Shot Learned Channel Simulation" was accepted.
 * February 2026. Our collaborative paper "AI/ML-Driven 6G Network Solutions with Energy Efficiency Considerations" appeared in *IEEE Access*.
 * January 2026. Our collaborative paper "6G PHY: Insights From 6G-ANNA Research Initiative" appeared in *IEEE Open Journal of the Communications Society*.
 {% comment %}

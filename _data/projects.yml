@@ -1,3 +1,12 @@
+- title: "Condition-Wise Sinkhorn Drifting"
+  url: "https://github.com/Fritschek/conditional_drifting_models_public"
+  description: "Condition-preserving one-shot channel simulation with Sinkhorn drifting over conditional output laws. A GLOBECOM version has been accepted."
+  links:
+    - label: "project page"
+      url: "https://fritschek.github.io/conditional_drifting_models_public/"
+    - label: "paper"
+      url: "https://arxiv.org/abs/2606.17893"
+
 - title: "MinDiffusion"
   url: "https://github.com/Fritschek/MinDiffusion"
   description: "Diffusion models as learned stochastic channel approximations for end-to-end communication-system training."
